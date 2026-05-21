@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using Main.CodeBase.Infrastructure.Services.APIService;
+using Main.CodeBase.Infrastructure.Services.PersistentProgressService;
 using Main.CodeBase.Infrastructure.Services.SceneLoadService;
 using UnityEngine;
 using Zenject;
@@ -13,14 +14,16 @@ namespace Main.CodeBase.InitialScene
         
         private IAPIClient _apiClient;
         private ISceneLoader _sceneLoader;
+        private IPersistentProgress _persistentProgress;
 
         private int _loadingPercent = 25;
-        
+
         [Inject]
-        private void Construct(IAPIClient apiClient, ISceneLoader sceneLoader)
+        private void Construct(IAPIClient apiClient, ISceneLoader sceneLoader, IPersistentProgress persistentProgress)
         {
             _apiClient = apiClient;
             _sceneLoader = sceneLoader;
+            _persistentProgress = persistentProgress;
         }
 
         private void Start()
@@ -41,9 +44,16 @@ namespace Main.CodeBase.InitialScene
                 UpdateLoadingView();
             }
 
+            await InitPersistentProgress();
+            
             UpdateLoadingView(true);
             
             LoadMainScene();
+        }
+
+        private async UniTask InitPersistentProgress()
+        {
+            _persistentProgress.CachePlayerProgress(await _apiClient.GetPlayerProgress());
         }
 
         private void LoadMainScene()
