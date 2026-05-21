@@ -12,8 +12,6 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
 {
     public class GlobalServicesInstaller : MonoInstaller
     {
-        [SerializeField] private StartingProgressRepository _startingProgressRepository;
-        
         public override void InstallBindings()
         {
             BindAPIClient();
@@ -31,8 +29,7 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
 
         private void BindConfigs()
         {
-            Container.BindInterfacesTo<LocalConfigs>()
-                .AsSingle().WithArguments(_startingProgressRepository);
+            Container.BindInterfacesTo<LocalConfigs>().AsSingle();
         }
 
         private void BindLocalization()

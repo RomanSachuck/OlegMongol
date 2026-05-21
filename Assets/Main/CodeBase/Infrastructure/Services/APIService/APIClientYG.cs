@@ -9,6 +9,8 @@ namespace Main.CodeBase.Infrastructure.Services.APIService
     public class APIClientYG : IAPIClient
     {
         private readonly IStartingProgressConfigs _startingProgressConfigs;
+        
+        private PlayerProgress _playerProgress;
 
         public APIClientYG(IStartingProgressConfigs startingProgressConfigs)
         {
@@ -27,13 +29,20 @@ namespace Main.CodeBase.Infrastructure.Services.APIService
             YG2.GameplayStop();
         }
 
-        public async UniTask<PlayerProgress> GetPlayerProgress()
+        public async UniTask<PlayerProgress> LoadPlayerProgress()
         {
             string loadedProgress = YG2.saves.PlayerProgressJson;
-            
-            return string.IsNullOrEmpty(loadedProgress) 
+
+            _playerProgress = string.IsNullOrEmpty(loadedProgress) 
                 ? new PlayerProgress(await _startingProgressConfigs.GetStartingProgress()) 
                 : loadedProgress.FromJson<PlayerProgress>();
+            
+            return _playerProgress;
+        }
+
+        public void SavePlayerProgress()
+        {
+            YG2.SaveProgress();
         }
     }
 }

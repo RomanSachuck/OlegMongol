@@ -827,6 +827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 471282313}
   - component: {fileID: 471282314}
+  - component: {fileID: 471282315}
   m_Layer: 0
   m_Name: Bootstrapper
   m_TagString: Untagged
@@ -861,7 +862,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63b4fb7232a4e35bcc16b2dca053435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startingProgressRepository: {fileID: 11400000, guid: 708ccebe68904d04e84372cad2512224, type: 2}
   _loadingCurtain: {fileID: 370160526}
+  _loadingSimulator: {fileID: 471282315}
+--- !u!114 &471282315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471282312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df01585f69be4101b6b56772be31e3c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _loadingSlider: {fileID: 92550561}
 --- !u!1 &671308700
 GameObject:

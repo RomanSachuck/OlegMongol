@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df6d46097fc4b94af3382691d6defca, type: 3}
   m_Name: StartingProgressRepository
   m_EditorClassIdentifier: 
+  <PlayerProgress>k__BackingField:
+    WalletSaveData:
+      Currencies:
+      - Currency: 0
+        Value: 0

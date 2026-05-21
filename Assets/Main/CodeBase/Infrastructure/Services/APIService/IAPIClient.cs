@@ -8,6 +8,7 @@ namespace Main.CodeBase.Infrastructure.Services.APIService
         bool IsInitialized { get; }
         void GamePlayStart();
         void GamePlayStop();
-        UniTask<PlayerProgress> GetPlayerProgress();
+        UniTask<PlayerProgress> LoadPlayerProgress();
+        void SavePlayerProgress();
     }
 }

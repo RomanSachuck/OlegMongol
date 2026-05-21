@@ -1,7 +1,10 @@
 ﻿using Cysharp.Threading.Tasks;
 using Main.CodeBase.Infrastructure.Services.APIService;
+using Main.CodeBase.Infrastructure.Services.ConfigsService;
 using Main.CodeBase.Infrastructure.Services.PersistentProgressService;
 using Main.CodeBase.Infrastructure.Services.SceneLoadService;
+using Main.CodeBase.StaticData.Repositories;
+using Main.CodeBase.Systems.WalletSystem;
 using UnityEngine;
 using Zenject;
 
@@ -9,21 +12,29 @@ namespace Main.CodeBase.InitialScene
 {
     public class Bootstrapper : MonoBehaviour
     {
+        [Header("Repositories")]
+        [SerializeField] private StartingProgressRepository _startingProgressRepository;
+        
+        [Header("References")]
         [SerializeField] private LoadingCurtain _loadingCurtain;
-        [SerializeField] private LoadingSlider _loadingSlider;
+        [SerializeField] private LoadingSimulator _loadingSimulator;
         
         private IAPIClient _apiClient;
         private ISceneLoader _sceneLoader;
         private IPersistentProgress _persistentProgress;
-
-        private int _loadingPercent = 25;
+        private IConfigs _configs;
+        
+        private Wallet _wallet;
 
         [Inject]
-        private void Construct(IAPIClient apiClient, ISceneLoader sceneLoader, IPersistentProgress persistentProgress)
+        private void Construct(IAPIClient apiClient, ISceneLoader sceneLoader, 
+            IPersistentProgress persistentProgress, IConfigs configs, Wallet wallet)
         {
             _apiClient = apiClient;
             _sceneLoader = sceneLoader;
             _persistentProgress = persistentProgress;
+            _configs = configs;
+            _wallet = wallet;
         }
 
         private void Start()
@@ -33,51 +44,48 @@ namespace Main.CodeBase.InitialScene
 
         private async UniTask Initialize()
         {
-            UpdateLoadingView();
+            _loadingSimulator.RunLoadingSimulation().Forget();
             
-            DontDestroyOnLoad(_loadingCurtain.gameObject);
-            _sceneLoader.SetCurtain(_loadingCurtain);
-            
-            while (_apiClient.IsInitialized == false)
-            {
-                await UniTask.Delay(Random.Range(50, 300));
-                UpdateLoadingView();
-            }
+            SetLoadingCurtain();
 
+            while (_apiClient.IsInitialized == false) 
+                await UniTask.Yield();
+
+            await InitConfigs();
             await InitPersistentProgress();
+
+            InitWallet();
             
-            UpdateLoadingView(true);
+            _loadingSimulator.FinishLoadingSimulation();
             
             LoadMainScene();
         }
 
+        private void InitWallet()
+        {
+            _wallet.Initialize(_persistentProgress);
+        }
+
+        private void SetLoadingCurtain()
+        {
+            DontDestroyOnLoad(_loadingCurtain.gameObject);
+            _sceneLoader.SetCurtain(_loadingCurtain);
+        }
+
+        private UniTask InitConfigs()
+        {
+            _configs.CacheStartingProgress(_startingProgressRepository.PlayerProgress);
+            return new UniTask();
+        }
+
         private async UniTask InitPersistentProgress()
         {
-            _persistentProgress.CachePlayerProgress(await _apiClient.GetPlayerProgress());
+            _persistentProgress.CachePlayerProgress(await _apiClient.LoadPlayerProgress());
         }
 
         private void LoadMainScene()
         {
             _sceneLoader.Load(SceneId.Main);
-        }
-        
-        private void UpdateLoadingView(bool isFinished = false)
-        {
-            if (isFinished)
-            {
-                _loadingSlider.SetValue(100, false);
-                return;
-            }
-            
-            if (_loadingPercent >= 100)
-            {
-                _loadingPercent = Random.Range(21, 75);
-                _loadingSlider.SetValue(_loadingPercent++, false);
-                _loadingSlider.SetNextInfo();
-                return;
-            }
-            
-            _loadingSlider.SetValue(_loadingPercent++);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Main.CodeBase.Infrastructure.Services.PersistentProgressService
 {
-    public interface IPersistentProgress
+    public interface IPersistentProgress : IWalletPersistent
     {
         void CachePlayerProgress(PlayerProgress playerProgress);
     }
