@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using Main.CodeBase.SaveData;
+using Main.CodeBase.StaticData.Configs;
 
 namespace Main.CodeBase.Infrastructure.Services.ConfigsService
 {
@@ -23,6 +26,21 @@ namespace Main.CodeBase.Infrastructure.Services.ConfigsService
             return new UniTask<PlayerProgress>(_startingProgress);
         }
         
+        #endregion
+        
+        #region Business
+        
+        private IEnumerable<BusinessConfigs> _businessConfigs;
+        
+        public void CacheBusinessConfigs(IEnumerable<BusinessConfigs> configs)
+        {
+            _businessConfigs = configs;
+        }
+
+        public IEnumerable<BusinessType> GetAllBusinesses()
+        {
+            return _businessConfigs.Select(c => c.BusinessType).ToArray();
+        }
         #endregion
     }
 }

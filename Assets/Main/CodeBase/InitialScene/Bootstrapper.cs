@@ -14,6 +14,7 @@ namespace Main.CodeBase.InitialScene
     {
         [Header("Repositories")]
         [SerializeField] private StartingProgressRepository _startingProgressRepository;
+        [SerializeField] private BusinessConfigsRepository _businessConfigsRepository;
         
         [Header("References")]
         [SerializeField] private LoadingCurtain _loadingCurtain;
@@ -75,6 +76,7 @@ namespace Main.CodeBase.InitialScene
         private UniTask InitConfigs()
         {
             _configs.CacheStartingProgress(_startingProgressRepository.PlayerProgress);
+            _configs.CacheBusinessConfigs(_businessConfigsRepository.Configs);
             return new UniTask();
         }
 

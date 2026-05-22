@@ -863,6 +863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startingProgressRepository: {fileID: 11400000, guid: 708ccebe68904d04e84372cad2512224, type: 2}
+  _businessConfigsRepository: {fileID: 11400000, guid: 3306df73259d46444b7412d07df4f6ca, type: 2}
   _loadingCurtain: {fileID: 370160526}
   _loadingSimulator: {fileID: 471282315}
 --- !u!114 &471282315

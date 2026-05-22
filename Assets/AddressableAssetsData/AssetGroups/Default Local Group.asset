@@ -45,6 +45,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80781b4ba7174ab40a846ef73589acf5
+    m_Address: Assets/Main/Prefabs/Screens/BusinessScreen/BusinesLists/BusinessList_Scrap.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 979a9cb7c2112e64b803b527bc29d6c0
+    m_Address: Assets/Main/Prefabs/Screens/BusinessScreen/BusinesLists/BusinessList_Bottle.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c65b1a4d8160b840ac2f1f9226f9efb
     m_Address: Assets/Main/Prefabs/Screens/BusinessScreen/BusinessScreen.prefab
     m_ReadOnly: 0
