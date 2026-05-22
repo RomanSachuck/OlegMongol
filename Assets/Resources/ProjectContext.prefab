@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e20b55014646afbe4ff8ba033f923f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _screenPrefabsRepository: {fileID: 11400000, guid: fd04b8de1d73c3f43b0ebea188dc8360, type: 2}
 --- !u!114 &8111863360571306968
 MonoBehaviour:
   m_ObjectHideFlags: 0

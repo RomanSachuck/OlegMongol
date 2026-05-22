@@ -31,7 +31,7 @@ namespace Main.CodeBase.Utilities
             return $"{seconds / 60:00}:{seconds % 60:00}";
         }
 
-        public static string ToFormatNumberString(this int number)
+        public static string ToFormatNumberString(this ulong number)
         {
             if (number < 1000)
                 return number.ToString();
@@ -45,9 +45,9 @@ namespace Main.CodeBase.Utilities
                 n++;
             }
             
-            decimal rounded = Math.Round(result, 1);
+            decimal rounded = Math.Round(result, 2);
 
-            return rounded % 1 == 0 ? $"{(int)rounded}{_numberNames[n]}" : $"{rounded:0.0}{_numberNames[n]}";
+            return rounded % 1 == 0 ? $"{(int)rounded}{_numberNames[n]}" : $"{rounded:0.00}.{_numberNames[n]}";
         }
 
         public static Color ToColor(this string targetColor)

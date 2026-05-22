@@ -1,4 +1,5 @@
 ﻿using Main.CodeBase.SimpleAnimations;
+using Main.CodeBase.Utilities;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -21,6 +22,8 @@ namespace Main.CodeBase.Systems.WalletSystem
         {
             _wallet = wallet;
             _wallet.Changed += OnChanged;
+
+            OnChanged(Currency.Dollar, _wallet.GetValue(Currency.Dollar), _wallet.GetValue(Currency.Dollar));
         }
 
         private void OnDestroy()
@@ -30,7 +33,7 @@ namespace Main.CodeBase.Systems.WalletSystem
 
         private void OnChanged(Currency currency, ulong oldValue, ulong newValue)
         {
-            _dollarsText.DoValue(oldValue, newValue, 0.5f);
+            _dollarsText.text = $"${newValue.ToFormatNumberString()}";
         }
     }
 }
