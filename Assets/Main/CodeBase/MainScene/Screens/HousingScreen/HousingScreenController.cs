@@ -8,8 +8,6 @@ namespace Main.CodeBase.MainScene.Screens.HousingScreen
         
         public override async UniTask Initialize(ScreenViewAbstract view)
         {
-            base.Initialize(view).Forget();
-            
             _view = view as HousingScreenView;
         }
 

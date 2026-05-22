@@ -26,24 +26,14 @@ namespace Main.CodeBase.MainScene.ScreenManagement
         private ScreenControllerAbstract _openedScreen;
         
         public ScreenManager(ScreenFactory screenFactory, ILoadingCurtain loadingCurtain,
-            BottomPanelController bottomPanelController, SettingsPanelController settingsPanelController,
-            RelaxScreenController relaxScreenController, BusinessScreenController businessScreenController,
-            InvestmentsScreenController investmentsScreenController, HousingScreenController housingScreenController,
-            ClothesScreenController clothesScreenController)
+            BottomPanelController bottomPanelController, SettingsPanelController settingsPanelController)
         {
             _screenFactory = screenFactory;
             _loadingCurtain = loadingCurtain;
             _bottomPanelController = bottomPanelController;
             _settingsPanelController = settingsPanelController;
 
-            _screens = new Dictionary<ScreenType, ScreenControllerAbstract>()
-            {
-                { ScreenType.Relax, relaxScreenController },
-                { ScreenType.Business, businessScreenController },
-                { ScreenType.Investments, investmentsScreenController },
-                { ScreenType.Housing, housingScreenController },
-                { ScreenType.Clothes, clothesScreenController },
-            };
+            _screens = new Dictionary<ScreenType, ScreenControllerAbstract>();
             
             _bottomPanelController.SelectedScreenChanged += OpenScreen;
         }
@@ -73,13 +63,13 @@ namespace Main.CodeBase.MainScene.ScreenManagement
         
         public async UniTask OpenScreen(ScreenType screenType)
         {
-            if (_screens[screenType].Created == false)
+            if (_screens.TryGetValue(screenType, out ScreenControllerAbstract controller) == false)
             {
                 _loadingCurtain.ShowCurtain();
                 await UniTask.Delay(500);
                 
-                ScreenViewAbstract screenViewAbstract = await _screenFactory.CreateScreen(screenType);
-                await _screens[screenType].Initialize(screenViewAbstract);
+                controller = await _screenFactory.CreateScreen(screenType);
+                _screens.Add(screenType, controller);
                 
                 _loadingCurtain.HideCurtain();
             }

@@ -176,6 +176,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3671003965293865116}
   - component: {fileID: 3759064034046386836}
+  - component: {fileID: 5288653090202235742}
+  - component: {fileID: 5852782605018065730}
   m_Layer: 5
   m_Name: RelaxScreen
   m_TagString: Untagged
@@ -217,3 +219,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bgImage: {fileID: 705502929421617447}
+--- !u!114 &5288653090202235742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7612565099319946699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 5852782605018065730}
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &5852782605018065730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7612565099319946699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfe83ef6fcc14015a4b139680c147910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _screenBackgroundsRepository: {fileID: 11400000, guid: 3264c29aa8b273d48bbe4dd359edc2b8, type: 2}

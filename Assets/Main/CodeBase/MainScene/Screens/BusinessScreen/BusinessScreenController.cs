@@ -8,8 +8,6 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen
         
         public override async UniTask Initialize(ScreenViewAbstract view)
         {
-            base.Initialize(view).Forget();
-            
             _view = view as BusinessScreenView;
         }
 

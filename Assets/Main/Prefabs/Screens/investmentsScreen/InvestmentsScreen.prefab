@@ -176,6 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3671003965293865116}
   - component: {fileID: 3860092077397781056}
+  - component: {fileID: 2135711190504573030}
   m_Layer: 5
   m_Name: InvestmentsScreen
   m_TagString: Untagged
@@ -216,3 +217,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe7d05140f9d4d7d9e91ea04176f0f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2135711190504573030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7612565099319946699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers: []
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
