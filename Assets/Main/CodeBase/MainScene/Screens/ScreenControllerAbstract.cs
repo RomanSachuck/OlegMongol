@@ -1,12 +1,15 @@
-﻿namespace Main.CodeBase.MainScene.Screens
+﻿using Cysharp.Threading.Tasks;
+
+namespace Main.CodeBase.MainScene.Screens
 {
     public abstract class ScreenControllerAbstract
     {
         public bool Created  { get; private set; }
 
-        public virtual void Initialize(ScreenViewAbstract view)
+        public virtual UniTask Initialize(ScreenViewAbstract view)
         {
             Created = true;
+            return UniTask.CompletedTask;
         }
         public abstract void Open();
         public abstract void Close();

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Main.CodeBase.SaveData;
+using Main.CodeBase.StaticData.Repositories;
 using Main.CodeBase.Systems.WalletSystem;
 
 namespace Main.CodeBase.Infrastructure.Services.PersistentProgressService
@@ -38,6 +39,31 @@ namespace Main.CodeBase.Infrastructure.Services.PersistentProgressService
                 .First(c => c.Currency == currency).Value = value;
         }
 
+        #endregion
+
+        #region House
+        
+        public IEnumerable<HouseType> GetOpenedHouses()
+        {
+            List<HouseType> result = new List<HouseType>();
+
+            foreach (HouseType openedHouse in _playerProgress.HouseSaveData.OpenedHouses) 
+                result.Add(openedHouse);
+            
+            return result;
+        }
+
+        public HouseType SelectedHouse
+        {
+            get => _playerProgress.HouseSaveData.SelectedHouse;
+            set => _playerProgress.HouseSaveData.SelectedHouse = value;
+        }
+
+        public void AddOpenedHouse(HouseType house)
+        {
+            _playerProgress.HouseSaveData.OpenedHouses.Add(house);
+        }
+        
         #endregion
     }
 }

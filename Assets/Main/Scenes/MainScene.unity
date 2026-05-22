@@ -527,6 +527,7 @@ MonoBehaviour:
   _mainCanvas: {fileID: 1573344128}
   _overlayCanvas: {fileID: 313821757}
   _screenPrefabsRepository: {fileID: 11400000, guid: fd04b8de1d73c3f43b0ebea188dc8360, type: 2}
+  _screenBackgroundsRepository: {fileID: 11400000, guid: 3264c29aa8b273d48bbe4dd359edc2b8, type: 2}
 --- !u!1 &1573344124
 GameObject:
   m_ObjectHideFlags: 0

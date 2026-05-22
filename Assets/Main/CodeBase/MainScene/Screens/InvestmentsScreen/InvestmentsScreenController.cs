@@ -1,12 +1,14 @@
-﻿namespace Main.CodeBase.MainScene.Screens.InvestmentsScreen
+﻿using Cysharp.Threading.Tasks;
+
+namespace Main.CodeBase.MainScene.Screens.InvestmentsScreen
 {
     public class InvestmentsScreenController : ScreenControllerAbstract
     {
         private InvestmentsScreenView _view;
         
-        public override void Initialize(ScreenViewAbstract view)
+        public override async UniTask Initialize(ScreenViewAbstract view)
         {
-            base.Initialize(view);
+            base.Initialize(view).Forget();
             
             _view = view as InvestmentsScreenView;
         }

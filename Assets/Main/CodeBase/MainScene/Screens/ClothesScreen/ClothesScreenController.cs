@@ -1,12 +1,14 @@
-﻿namespace Main.CodeBase.MainScene.Screens.ClothesScreen
+﻿using Cysharp.Threading.Tasks;
+
+namespace Main.CodeBase.MainScene.Screens.ClothesScreen
 {
     public class ClothesScreenController : ScreenControllerAbstract
     {
         private ClothesScreenView _view;
         
-        public override void Initialize(ScreenViewAbstract view)
+        public override async UniTask Initialize(ScreenViewAbstract view)
         {
-            base.Initialize(view);
+            base.Initialize(view).Forget();
             
             _view = view as ClothesScreenView;
         }

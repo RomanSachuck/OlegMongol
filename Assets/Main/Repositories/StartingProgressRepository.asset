@@ -17,3 +17,6 @@ MonoBehaviour:
       Currencies:
       - Currency: 0
         Value: 0
+    HouseSaveData:
+      OpenedHouses: 00000000
+      SelectedHouse: 0

@@ -1,14 +1,28 @@
-﻿namespace Main.CodeBase.MainScene.Screens.RelaxScreen
+﻿using Cysharp.Threading.Tasks;
+using Main.CodeBase.Infrastructure.Services.PersistentProgressService;
+
+namespace Main.CodeBase.MainScene.Screens.RelaxScreen
 {
     public class RelaxScreenController : ScreenControllerAbstract
     {
-        private RelaxScreenView _view;
+        private readonly HouseBgLoader _bgLoader;
+        private readonly IHousePersistent _housePersistent;
         
-        public override void Initialize(ScreenViewAbstract view)
+        private RelaxScreenView _view;
+
+        public RelaxScreenController(HouseBgLoader bgLoader, IHousePersistent housePersistent)
         {
-            base.Initialize(view);
+            _bgLoader = bgLoader;
+            _housePersistent = housePersistent;
+        }
+        
+        public override async UniTask Initialize(ScreenViewAbstract view)
+        {
+            base.Initialize(view).Forget();
             
-            _view = view as RelaxScreenView;
+            _view = (RelaxScreenView) view;
+
+            _view.SetBackground(await _bgLoader.LoadBg(_housePersistent.SelectedHouse));
         }
         
         public override void Open()

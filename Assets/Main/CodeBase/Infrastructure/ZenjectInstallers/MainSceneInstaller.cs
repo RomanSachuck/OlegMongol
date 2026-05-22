@@ -17,11 +17,15 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
         [SerializeField] private Transform _mainCanvas;
         [SerializeField] private Transform _overlayCanvas;
         [SerializeField] private ScreensPrefabsRepository _screenPrefabsRepository;
+        [SerializeField] private ScreenBackgroundsRepository _screenBackgroundsRepository;
+        
         public override void InstallBindings()
         {
             BindScreenFactory();
             BindScreenManager();
 
+            BindHouseBgLoader();
+            
             BindBottomPanelController();
             BindSettingsPanelController();
             
@@ -30,6 +34,12 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
             BindInvestmentsScreenController();
             BindHousingScreenController();
             BindClothesScreenController();
+        }
+
+        private void BindHouseBgLoader()
+        {
+            Container.Bind<HouseBgLoader>().AsSingle()
+                .WithArguments(_screenBackgroundsRepository);
         }
 
         private void BindClothesScreenController()

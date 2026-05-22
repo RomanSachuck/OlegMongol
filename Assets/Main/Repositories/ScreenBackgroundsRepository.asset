@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd9bea48c4f24f4587c56732f2f62dbe, type: 3}
+  m_Name: ScreenBackgroundsRepository
+  m_EditorClassIdentifier: 
+  _houseBgRefs:
+  - <HouseType>k__BackingField: 0
+    <SpriteRef>k__BackingField:
+      m_AssetGUID: 43639dc3bef2d464fb383e9fc249c7d6
+      m_SubObjectName: bg_2_0
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
+  - <HouseType>k__BackingField: 1
+    <SpriteRef>k__BackingField:
+      m_AssetGUID: 04163123a7b6eff40bd40fd3cb33aa04
+      m_SubObjectName: Bg_2_0
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1

@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 01a877aaf1cd94e4c821c3769e66ea93
   m_SerializeEntries:
+  - m_GUID: 04163123a7b6eff40bd40fd3cb33aa04
+    m_Address: Assets/AssetPacks/Backgrounds/Bando_Bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1fb956f9361f903428be56c98f8cc117
     m_Address: Assets/Main/Prefabs/ScreenOverlay/SettingsButton.prefab
     m_ReadOnly: 0
@@ -22,6 +27,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b3024cf8e68f3d48b02e4663563d477
     m_Address: Assets/Main/Prefabs/Screens/ClothesScreen/ClothesScreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43639dc3bef2d464fb383e9fc249c7d6
+    m_Address: Assets/AssetPacks/Backgrounds/Street_Bg.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

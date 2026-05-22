@@ -79,7 +79,7 @@ namespace Main.CodeBase.MainScene.ScreenManagement
                 await UniTask.Delay(500);
                 
                 ScreenViewAbstract screenViewAbstract = await _screenFactory.CreateScreen(screenType);
-                _screens[screenType].Initialize(screenViewAbstract);
+                await _screens[screenType].Initialize(screenViewAbstract);
                 
                 _loadingCurtain.HideCurtain();
             }
