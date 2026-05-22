@@ -1,5 +1,6 @@
 ﻿using Main.CodeBase.StaticData.Repositories;
 using Main.CodeBase.Utilities;
+using UnityEngine;
 
 namespace Main.CodeBase.MainScene.BottomPanel
 {
@@ -8,21 +9,30 @@ namespace Main.CodeBase.MainScene.BottomPanel
         public event UniAction<ScreenType> SelectedScreenChanged;
         
         private BottomPanelView _view;
+        private ScreenType _selectedScreen = ScreenType.Relax;
 
         public void Initialize(BottomPanelView view)
         {
             _view = view;
-            _view.Clicked += OnClicked;
+            _view.Select(_selectedScreen);
+            
+            _view.Click += OnClick;
         }
         
         public void Destroy()
         {
-            _view.Clicked -= OnClicked;
+            _view.Click -= OnClick;
         }
         
-        private void OnClicked(ScreenType screenType)
+        private void OnClick(ScreenType screenType)
         {
-            //Валидация клика
+            if (_selectedScreen == screenType)
+                return;
+
+            _view.Unselect(_selectedScreen);
+            _selectedScreen = screenType;
+            _view.Select(_selectedScreen);
+            
             SelectedScreenChanged?.Invoke(screenType);
         }
     }

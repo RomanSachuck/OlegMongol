@@ -22,32 +22,32 @@ MonoBehaviour:
       m_EditorAssetChanged: 1
   - <ScreenType>k__BackingField: 1
     <PrefabRef>k__BackingField:
-      m_AssetGUID: 
+      m_AssetGUID: 9c65b1a4d8160b840ac2f1f9226f9efb
       m_SubObjectName: 
       m_SubObjectType: 
       m_SubObjectGUID: 
-      m_EditorAssetChanged: 0
+      m_EditorAssetChanged: 1
   - <ScreenType>k__BackingField: 2
     <PrefabRef>k__BackingField:
-      m_AssetGUID: 
+      m_AssetGUID: fade2e7038f4a4243acffffb2796ff67
       m_SubObjectName: 
       m_SubObjectType: 
       m_SubObjectGUID: 
-      m_EditorAssetChanged: 0
+      m_EditorAssetChanged: 1
   - <ScreenType>k__BackingField: 3
     <PrefabRef>k__BackingField:
-      m_AssetGUID: 
+      m_AssetGUID: 2b3024cf8e68f3d48b02e4663563d477
       m_SubObjectName: 
       m_SubObjectType: 
       m_SubObjectGUID: 
-      m_EditorAssetChanged: 0
+      m_EditorAssetChanged: 1
   - <ScreenType>k__BackingField: 4
     <PrefabRef>k__BackingField:
-      m_AssetGUID: 
+      m_AssetGUID: 7dd0780fa7476ec4bab665b811420666
       m_SubObjectName: 
       m_SubObjectType: 
       m_SubObjectGUID: 
-      m_EditorAssetChanged: 0
+      m_EditorAssetChanged: 1
   <WalletViewRef>k__BackingField:
     m_AssetGUID: ff8d40d8ceda2aa47b4ddd427fbb5621
     m_SubObjectName: 

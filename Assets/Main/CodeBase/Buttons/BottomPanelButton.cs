@@ -1,4 +1,6 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
+using Main.CodeBase.StaticData.Repositories;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,54 +8,46 @@ namespace Main.CodeBase.Buttons
 {
     public class BottomPanelButton : CustomButton
     {
-        private float _posY;
+        public event Action<ScreenType> Click;
+        
         private Vector3 _scale;
         private int _baseSiblingIndex;
+
+        [field:SerializeField] public ScreenType ScreenType { get; private set; }
         
         private void Awake()
         {
-            _posY = transform.position.y;
             _scale = transform.localScale;
             _baseSiblingIndex = transform.GetSiblingIndex();
         }
 
         public override void OnPointerClick(PointerEventData eventData)
         {
-            base.OnPointerClick(eventData);
-            
-            DOTween.Kill(transform);
-
-            DOTween.Sequence().SetId(transform)
-                .Append(transform.DOScale(_scale, 0.15f)).SetId(transform)
-                .Append(transform.DOScale(_scale * 1.1f, 0.15f)).SetId(transform);
+            Click?.Invoke(ScreenType);
         }
         
         public override void OnPointerEnter(PointerEventData eventData)
-        {
-            base.OnPointerEnter(eventData);
+        { }
 
+        public override void OnPointerExit(PointerEventData eventData)
+        { }
+
+        public void Select()
+        {
             transform.SetAsLastSibling();
             
             DOTween.Kill(transform);
             
-            transform.DOScale(_scale * 1.1f, .5f)
-                .SetEase(Ease.OutBack).SetId(transform);
-            transform.DOMoveY(_posY + 0.1f, .3f)
-                .SetEase(Ease.OutBack).SetId(transform);
+            transform.DOScale(_scale * 1.2f, 0.5f).SetEase(Ease.OutBack).SetId(transform);
         }
 
-        public override void OnPointerExit(PointerEventData eventData)
+        public void Unselect()
         {
-            base.OnPointerExit(eventData);
-            
             transform.SetSiblingIndex(_baseSiblingIndex);
             
             DOTween.Kill(transform);
-            
-            transform.DOScale(_scale, .5f)
-                .SetEase(Ease.OutBack).SetId(transform);
-            transform.DOMoveY(_posY, .3f)
-                .SetEase(Ease.OutBack).SetId(transform);
+
+            transform.DOScale(_scale, 0.5f).SetEase(Ease.OutBack).SetId(transform);
         }
     }
 }

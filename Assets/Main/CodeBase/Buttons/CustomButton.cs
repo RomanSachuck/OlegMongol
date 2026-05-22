@@ -1,28 +1,15 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Main.CodeBase.Buttons
 {
-    public class CustomButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+    public abstract class CustomButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        public event Action Click;
-        public event Action Enter;
-        public event Action Exit;
-        
-        public virtual void OnPointerClick(PointerEventData eventData)
-        {
-            Click?.Invoke();
-        }
 
-        public virtual void OnPointerEnter(PointerEventData eventData)
-        {
-            Enter?.Invoke();
-        }
+        public abstract void OnPointerClick(PointerEventData eventData);
 
-        public virtual void OnPointerExit(PointerEventData eventData)
-        {
-            Exit?.Invoke();
-        }
+        public abstract void OnPointerEnter(PointerEventData eventData);
+
+        public abstract void OnPointerExit(PointerEventData eventData);
     }
 }

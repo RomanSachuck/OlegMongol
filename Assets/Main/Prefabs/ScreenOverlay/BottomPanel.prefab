@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe38bdd17114133b4d20a1a39e1259c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ScreenType>k__BackingField: 1
 --- !u!222 &6349243961413541289
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -195,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe38bdd17114133b4d20a1a39e1259c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ScreenType>k__BackingField: 3
 --- !u!222 &2119611028360366240
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -277,14 +279,14 @@ RectTransform:
   m_GameObject: {fileID: 4002136004909069846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6065584297053826031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1090}
+  m_AnchoredPosition: {x: 0, y: -1080}
   m_SizeDelta: {x: 217, y: 275.8}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &621655461380947997
@@ -299,6 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe38bdd17114133b4d20a1a39e1259c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ScreenType>k__BackingField: 0
 --- !u!222 &7512401180201952713
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -403,6 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe38bdd17114133b4d20a1a39e1259c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ScreenType>k__BackingField: 4
 --- !u!222 &2900748700350444584
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -507,6 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe38bdd17114133b4d20a1a39e1259c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ScreenType>k__BackingField: 2
 --- !u!222 &1510333439751691715
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -611,6 +616,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d0467e649544c0a16a2a9ea2fe8464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttons:
+  - {fileID: 620967144668612791}
+  - {fileID: 126040094129887585}
+  - {fileID: 1521703833018046548}
+  - {fileID: 1279489532226995918}
+  - {fileID: 621655461380947997}
 --- !u!222 &8876851859839817729
 CanvasRenderer:
   m_ObjectHideFlags: 0

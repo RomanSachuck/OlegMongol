@@ -1,5 +1,9 @@
 ﻿using Main.CodeBase.MainScene.BottomPanel;
 using Main.CodeBase.MainScene.ScreenManagement;
+using Main.CodeBase.MainScene.Screens.BusinessScreen;
+using Main.CodeBase.MainScene.Screens.ClothesScreen;
+using Main.CodeBase.MainScene.Screens.HousingScreen;
+using Main.CodeBase.MainScene.Screens.InvestmentsScreen;
 using Main.CodeBase.MainScene.Screens.RelaxScreen;
 using Main.CodeBase.MainScene.SettingsPanel;
 using Main.CodeBase.StaticData.Repositories;
@@ -20,7 +24,32 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
 
             BindBottomPanelController();
             BindSettingsPanelController();
+            
             BindRelaxScreenController();
+            BindBusinessScreenController();
+            BindInvestmentsScreenController();
+            BindHousingScreenController();
+            BindClothesScreenController();
+        }
+
+        private void BindClothesScreenController()
+        {
+            Container.Bind<ClothesScreenController>().AsSingle();
+        }
+
+        private void BindHousingScreenController()
+        {
+            Container.Bind<HousingScreenController>().AsSingle();
+        }
+
+        private void BindInvestmentsScreenController()
+        {
+            Container.Bind<InvestmentsScreenController>().AsSingle();
+        }
+
+        private void BindBusinessScreenController()
+        {
+            Container.Bind<BusinessScreenController>().AsSingle();
         }
 
         private void BindRelaxScreenController()

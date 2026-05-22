@@ -20,13 +20,38 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b3024cf8e68f3d48b02e4663563d477
+    m_Address: Assets/Main/Prefabs/Screens/ClothesScreen/ClothesScreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d80765b6e9657f438d75446ed34d2ef
     m_Address: Assets/Main/Prefabs/ScreenOverlay/BottomPanel.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7dd0780fa7476ec4bab665b811420666
+    m_Address: Assets/Main/Prefabs/Screens/HousingScreen/HousingScreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c65b1a4d8160b840ac2f1f9226f9efb
+    m_Address: Assets/Main/Prefabs/Screens/BusinessScreen/BusinessScreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d7e65e52950ddd418d657c9602098e4
     m_Address: Assets/Main/Prefabs/Screens/RelaxScreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e699deafadc5c264a8d3dcbbc8d27bd1
+    m_Address: Assets/Main/Prefabs/Screens/BusinessScreen/BusinessUpgradePanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fade2e7038f4a4243acffffb2796ff67
+    m_Address: Assets/Main/Prefabs/Screens/investmentsScreen/InvestmentsScreen.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

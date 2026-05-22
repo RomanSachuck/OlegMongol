@@ -1,16 +1,16 @@
-﻿namespace Main.CodeBase.MainScene.Screens.RelaxScreen
+﻿namespace Main.CodeBase.MainScene.Screens.ClothesScreen
 {
-    public class RelaxScreenController : ScreenControllerAbstract
+    public class ClothesScreenController : ScreenControllerAbstract
     {
-        private RelaxScreenView _view;
+        private ClothesScreenView _view;
         
         public override void Initialize(ScreenViewAbstract view)
         {
             base.Initialize(view);
             
-            _view = view as RelaxScreenView;
+            _view = view as ClothesScreenView;
         }
-        
+
         public override void Open()
         {
             _view.gameObject.SetActive(true);

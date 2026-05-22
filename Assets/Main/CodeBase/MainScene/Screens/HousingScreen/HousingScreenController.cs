@@ -1,16 +1,16 @@
-﻿namespace Main.CodeBase.MainScene.Screens.RelaxScreen
+﻿namespace Main.CodeBase.MainScene.Screens.HousingScreen
 {
-    public class RelaxScreenController : ScreenControllerAbstract
+    public class HousingScreenController : ScreenControllerAbstract
     {
-        private RelaxScreenView _view;
+        private HousingScreenView _view;
         
         public override void Initialize(ScreenViewAbstract view)
         {
             base.Initialize(view);
             
-            _view = view as RelaxScreenView;
+            _view = view as HousingScreenView;
         }
-        
+
         public override void Open()
         {
             _view.gameObject.SetActive(true);
