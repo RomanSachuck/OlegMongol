@@ -15,11 +15,11 @@ MonoBehaviour:
   _prefabs:
   - <ScreenType>k__BackingField: 0
     <PrefabRef>k__BackingField:
-      m_AssetGUID: 
+      m_AssetGUID: 9d7e65e52950ddd418d657c9602098e4
       m_SubObjectName: 
       m_SubObjectType: 
       m_SubObjectGUID: 
-      m_EditorAssetChanged: 0
+      m_EditorAssetChanged: 1
   - <ScreenType>k__BackingField: 1
     <PrefabRef>k__BackingField:
       m_AssetGUID: 
@@ -56,6 +56,12 @@ MonoBehaviour:
     m_EditorAssetChanged: 1
   <BottomPanelRef>k__BackingField:
     m_AssetGUID: 4d80765b6e9657f438d75446ed34d2ef
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 1
+  <SettingsButton>k__BackingField:
+    m_AssetGUID: 1fb956f9361f903428be56c98f8cc117
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 

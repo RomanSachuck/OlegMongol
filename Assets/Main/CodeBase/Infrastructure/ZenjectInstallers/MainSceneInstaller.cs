@@ -1,5 +1,7 @@
 ﻿using Main.CodeBase.MainScene.BottomPanel;
 using Main.CodeBase.MainScene.ScreenManagement;
+using Main.CodeBase.MainScene.Screens.RelaxScreen;
+using Main.CodeBase.MainScene.SettingsPanel;
 using Main.CodeBase.StaticData.Repositories;
 using UnityEngine;
 using Zenject;
@@ -17,6 +19,18 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
             BindScreenManager();
 
             BindBottomPanelController();
+            BindSettingsPanelController();
+            BindRelaxScreenController();
+        }
+
+        private void BindRelaxScreenController()
+        {
+            Container.Bind<RelaxScreenController>().AsSingle();
+        }
+
+        private void BindSettingsPanelController()
+        {
+            Container.Bind<SettingsPanelController>().AsSingle();
         }
 
         private void BindBottomPanelController()

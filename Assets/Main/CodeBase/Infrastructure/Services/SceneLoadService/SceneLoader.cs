@@ -11,6 +11,7 @@ namespace Main.CodeBase.Infrastructure.Services.SceneLoadService
         private readonly ZenjectSceneLoader _zenjectSceneLoader;
         
         private LoadingCurtain _loadingCurtain;
+        bool _curtainOpened = true;
         
         public SceneLoader(ZenjectSceneLoader zenjectSceneLoader)
         {
@@ -19,11 +20,19 @@ namespace Main.CodeBase.Infrastructure.Services.SceneLoadService
 
         public void ShowCurtain()
         {
+            if(_curtainOpened)
+                return;
+            
             _loadingCurtain.Show();
+            _curtainOpened = true;
         }
 
         public void HideCurtain()
         {
+            if(_curtainOpened == false)
+                return;
+            
+            _curtainOpened = false;
             _loadingCurtain.Hide();
         }
         

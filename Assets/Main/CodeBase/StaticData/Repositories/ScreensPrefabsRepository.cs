@@ -12,6 +12,7 @@ namespace Main.CodeBase.StaticData.Repositories
         
         [field:SerializeField] public AssetReferenceGameObject WalletViewRef {get; private set;}
         [field:SerializeField] public AssetReferenceGameObject BottomPanelRef {get; private set;}
+        [field:SerializeField] public AssetReferenceGameObject SettingsButton {get; private set;}
 
         public AssetReferenceGameObject GetScreenPrefabRef(ScreenType screenType) => 
             _prefabs.First(s => s.ScreenType == screenType).PrefabRef;

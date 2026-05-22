@@ -33,8 +33,8 @@ namespace Main.CodeBase.MainScene
         {
             await _screenManager.CreateBottomPanel();
             await _screenManager.CreateWalletView();
-            //await _screenManager.CreateSettingsButton();
-            //await _screenManager.OpenScreen(ScreenType.Relax);
+            await _screenManager.CreateSettingsButton();
+            await _screenManager.OpenScreen(ScreenType.Relax);
             
             _loadingCurtain.HideCurtain();
         }

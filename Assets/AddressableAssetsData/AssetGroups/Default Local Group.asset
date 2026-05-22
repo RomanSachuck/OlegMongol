@@ -15,8 +15,18 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 01a877aaf1cd94e4c821c3769e66ea93
   m_SerializeEntries:
+  - m_GUID: 1fb956f9361f903428be56c98f8cc117
+    m_Address: Assets/Main/Prefabs/ScreenOverlay/SettingsButton.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d80765b6e9657f438d75446ed34d2ef
     m_Address: Assets/Main/Prefabs/ScreenOverlay/BottomPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d7e65e52950ddd418d657c9602098e4
+    m_Address: Assets/Main/Prefabs/Screens/RelaxScreen.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
