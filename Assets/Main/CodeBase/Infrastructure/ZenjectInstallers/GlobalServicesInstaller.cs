@@ -4,8 +4,7 @@ using Main.CodeBase.Infrastructure.Services.ConfigsService;
 using Main.CodeBase.Infrastructure.Services.LocalizationService;
 using Main.CodeBase.Infrastructure.Services.PersistentProgressService;
 using Main.CodeBase.Infrastructure.Services.SceneLoadService;
-using Main.CodeBase.StaticData.Repositories;
-using UnityEngine;
+using Main.CodeBase.Infrastructure.Services.TimeService;
 using Zenject;
 
 namespace Main.CodeBase.Infrastructure.ZenjectInstallers
@@ -20,6 +19,12 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
             BindLocalization();
             BindConfigs();
             BindPersistentProgress();
+            BindTimeService();
+        }
+
+        private void BindTimeService()
+        {
+            Container.BindInterfacesTo<TimeService>().AsSingle();
         }
 
         private void BindPersistentProgress()
@@ -34,7 +39,7 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
 
         private void BindLocalization()
         {
-            Container.Bind<Localization>().AsSingle();
+            Container.BindInterfacesTo<Localization>().AsSingle();
         }
 
         private void BindAssetProvider()

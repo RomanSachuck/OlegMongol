@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -2076440461336010097, guid: 09a72a163161f2144925c3cfbc803fe2, type: 3}
+    - target: {fileID: 7707068260417595940, guid: 979a9cb7c2112e64b803b527bc29d6c0, type: 3}
+      propertyPath: <BusinessType>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8242121509472440079, guid: 979a9cb7c2112e64b803b527bc29d6c0, type: 3}
       propertyPath: m_Sprite
       value: 

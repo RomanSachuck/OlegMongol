@@ -10,5 +10,6 @@ namespace Main.CodeBase.Infrastructure.Services.APIService
         void GamePlayStop();
         UniTask<PlayerProgress> LoadPlayerProgress();
         void SavePlayerProgress();
+        UniTask<long> GetServerTime();
     }
 }

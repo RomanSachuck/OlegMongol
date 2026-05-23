@@ -16,6 +16,16 @@ namespace Main.CodeBase.Infrastructure.Services.PersistentProgressService
             _playerProgress = playerProgress;
         }
 
+        #region Time
+        
+        public long TimeExitGame 
+        {
+            get => _playerProgress.TimeExitGame;
+            set => _playerProgress.TimeExitGame = value;
+        }
+        
+        #endregion
+        
         #region Wallet
 
         public IEnumerable<(Currency, ulong)> GetAllCurrencies()

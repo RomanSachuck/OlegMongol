@@ -17,7 +17,11 @@ MonoBehaviour:
     <BaseProductPrice>k__BackingField: 1
     <CycleSize>k__BackingField: 10
     <BaseProduction>k__BackingField: 1
+    <RequiredHouse>k__BackingField: 0
+    <RequiredClothes>k__BackingField: 0
   - <BusinessType>k__BackingField: 1
     <BaseProductPrice>k__BackingField: 3
     <CycleSize>k__BackingField: 15
     <BaseProduction>k__BackingField: 1
+    <RequiredHouse>k__BackingField: 0
+    <RequiredClothes>k__BackingField: 0

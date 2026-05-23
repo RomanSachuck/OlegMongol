@@ -1,4 +1,5 @@
 ﻿using Main.CodeBase.Systems.WalletSystem;
+using Main.CodeBase.Systems.WorkSystem;
 using Zenject;
 
 namespace Main.CodeBase.Infrastructure.ZenjectInstallers
@@ -8,6 +9,12 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
         public override void InstallBindings()
         {
             BindWalletSystem();
+            BindWorkSystem();
+        }
+
+        private void BindWorkSystem()
+        {
+            Container.Bind<WorkController>().AsSingle();
         }
 
         private void BindWalletSystem()

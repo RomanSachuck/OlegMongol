@@ -30,7 +30,9 @@ namespace Main.CodeBase.Systems.WalletSystem
                 throw new ArgumentException("Value must be greater than zero");
             
             _currencies[currency] += value;
-            Changed?.Invoke(currency, _currencies[currency] - value, value);
+            Changed?.Invoke(currency, _currencies[currency] - value, _currencies[currency]);
+            
+            _walletPersistent.SetValue(currency, _currencies[currency]);
         }
 
         public void Spend(Currency currency, ulong value)
@@ -39,7 +41,9 @@ namespace Main.CodeBase.Systems.WalletSystem
                 throw new ArgumentException("Value must be greater than zero");
             
             _currencies[currency] -= value;
-            Changed?.Invoke(currency, _currencies[currency] + value, value);
+            Changed?.Invoke(currency, _currencies[currency] + value, _currencies[currency]);
+            
+            _walletPersistent.SetValue(currency, _currencies[currency]);
         }
     }
 }

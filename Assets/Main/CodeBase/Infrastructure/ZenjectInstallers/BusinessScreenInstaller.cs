@@ -17,7 +17,7 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
 
         private void BindBusinessListFactory()
         {
-            Container.Bind<BusinessListFactory>().AsSingle()
+            Container.Bind<WorkListFactory>().AsSingle()
                 .WithArguments(_businessListsPrefabsRepository, _businessListsParent);
         }
     }

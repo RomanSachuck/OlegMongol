@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Cysharp.Threading.Tasks;
 using Main.CodeBase.Infrastructure.Services.LocalizationService;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -21,12 +20,12 @@ namespace Main.CodeBase.Utilities
         public static long ToUnixSeconds(this DateTime dateTime) =>
             (long)(dateTime - new DateTime(1970, 1, 1)).TotalSeconds;
 
-        public static async UniTask<string> ToTimeString(this int seconds, ILocalization localization)
+        public static string ToTimeString(this int seconds, ILocalization localization)
         {
             if (seconds / 60 >= 60)
                 return
-                    $"{seconds / 60 / 60}{await localization.GetHoursShortWord()} " +
-                    $"{seconds / 60 % 60}{await localization.GetMinutesShortWord()}";
+                    $"{seconds / 60 / 60}{localization.GetHoursShortWord()} " +
+                    $"{seconds / 60 % 60}{localization.GetMinutesShortWord()}";
 
             return $"{seconds / 60:00}:{seconds % 60:00}";
         }
