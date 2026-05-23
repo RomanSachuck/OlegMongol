@@ -7,5 +7,6 @@ namespace Main.CodeBase.Infrastructure.Services.ConfigsService
     {
         void CacheBusinessConfigs(IEnumerable<BusinessConfigs> configs);
         IEnumerable<BusinessType> GetAllBusinesses();
+        BusinessConfigs GetBusinessConfig(BusinessType businessType);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Main.CodeBase.SaveData;
+using Main.CodeBase.StaticData.Configs;
 using Main.CodeBase.StaticData.Repositories;
 using Main.CodeBase.Systems.WalletSystem;
 
@@ -62,6 +63,30 @@ namespace Main.CodeBase.Infrastructure.Services.PersistentProgressService
         public void AddOpenedHouse(HouseType house)
         {
             _playerProgress.HouseSaveData.OpenedHouses.Add(house);
+        }
+        
+        #endregion
+        
+        #region Clothes
+        
+        public IEnumerable<ClothesType> GetOpenedClothes()
+        {
+            List<ClothesType> result = new List<ClothesType>();
+
+            foreach (ClothesType openedClothes in _playerProgress.ClothesSaveData.OpenedClothes) 
+                result.Add(openedClothes);
+            
+            return result;
+        }
+
+        public ClothesType SelectedClothes
+        {
+            get => _playerProgress.ClothesSaveData.SelectedClothes;
+            set => _playerProgress.ClothesSaveData.SelectedClothes = value; 
+        }
+        public void AddOpenedClothes(ClothesType clothes)
+        {
+            _playerProgress.ClothesSaveData.OpenedClothes.Add(clothes);
         }
         
         #endregion

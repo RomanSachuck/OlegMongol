@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Main.CodeBase.StaticData.Configs;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -19,11 +20,5 @@ namespace Main.CodeBase.StaticData.Repositories
     {
         [field:SerializeField]public HouseType HouseType { get; private set; }
         [field:SerializeField]public AssetReferenceSprite SpriteRef { get; private set; }
-    }
-    
-    public enum HouseType
-    {
-        Street = 0,
-        Bando = 1,
     }
 }

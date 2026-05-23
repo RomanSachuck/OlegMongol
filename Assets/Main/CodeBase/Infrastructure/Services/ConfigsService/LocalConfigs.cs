@@ -41,6 +41,12 @@ namespace Main.CodeBase.Infrastructure.Services.ConfigsService
         {
             return _businessConfigs.Select(c => c.BusinessType).ToArray();
         }
+
+        public BusinessConfigs GetBusinessConfig(BusinessType businessType)
+        {
+            return _businessConfigs.First(c => c.BusinessType == businessType);
+        }
+
         #endregion
     }
 }

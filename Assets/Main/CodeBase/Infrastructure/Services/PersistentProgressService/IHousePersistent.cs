@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Main.CodeBase.StaticData.Repositories;
+using Main.CodeBase.StaticData.Configs;
 
 namespace Main.CodeBase.Infrastructure.Services.PersistentProgressService
 {

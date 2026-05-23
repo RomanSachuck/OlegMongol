@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using Main.CodeBase.Infrastructure.Services.AssetManagment;
+using Main.CodeBase.StaticData.Configs;
 using Main.CodeBase.StaticData.Repositories;
 using UnityEngine;
 using UnityEngine.AddressableAssets;

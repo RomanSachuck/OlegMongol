@@ -20,3 +20,6 @@ MonoBehaviour:
     HouseSaveData:
       OpenedHouses: 00000000
       SelectedHouse: 0
+    ClothesSaveData:
+      OpenedClothes: 00000000
+      SelectedClothes: 0
