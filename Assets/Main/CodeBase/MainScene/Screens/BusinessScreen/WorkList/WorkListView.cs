@@ -18,8 +18,18 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
         {
             _workSlider.SetValue(currentCycleValue, fullCycleValue);
             _lockedPanel.SetActive(isUnlocked == false, lockedTitle);
+        }
+
+        private void OnEnable()
+        {
             _upgradeButton.Click += OnClickUpgradeButton;
             _workButton.Click += OnClickWorkButton;
+        }
+
+        private void OnDisable()
+        {
+            _upgradeButton.Click -= OnClickUpgradeButton;
+            _workButton.Click -= OnClickWorkButton;
         }
 
         public void UpdateCycleValues(int currentValue, int fullValue)
@@ -27,10 +37,9 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
             _workSlider.SetValue(currentValue, fullValue);
         }
         
-        private void OnDestroy()
+        public void ShowIncomeAnimation(ulong income)
         {
-            _upgradeButton.Click -= OnClickUpgradeButton;
-            _workButton.Click -= OnClickWorkButton;
+            
         }
         
         private void OnClickUpgradeButton()

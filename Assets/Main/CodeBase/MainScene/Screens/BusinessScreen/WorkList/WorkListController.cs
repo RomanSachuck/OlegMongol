@@ -71,7 +71,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
         {
             if (businessType == _businessType)
             {
-                //логика обновления UI
+                _view.ShowIncomeAnimation(income);
             }
         }
         

@@ -1,4 +1,5 @@
 ﻿using Main.CodeBase.MainScene.Screens.BusinessScreen;
+using Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList;
 using Main.CodeBase.StaticData.Repositories;
 using UnityEngine;
 using Zenject;

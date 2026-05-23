@@ -1,13 +1,12 @@
 ﻿using Cysharp.Threading.Tasks;
 using Main.CodeBase.Infrastructure.Services.AssetManagment;
-using Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList;
 using Main.CodeBase.StaticData.Configs;
 using Main.CodeBase.StaticData.Repositories;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
 
-namespace Main.CodeBase.MainScene.Screens.BusinessScreen
+namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
 {
     public class WorkListFactory
     {

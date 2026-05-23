@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Main.CodeBase.Infrastructure.Services.ConfigsService;
+using Main.CodeBase.MainScene.Screens.BusinessScreen.BusinessUpgrade;
 using Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList;
 using Main.CodeBase.StaticData.Configs;
 
@@ -9,6 +10,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen
     public class BusinessScreenController : ScreenControllerAbstract
     {
         private readonly WorkListFactory _workListFactory;
+        private readonly BusinessUpgradePanelFactory _businessUpgradePanelFactory;
         private readonly IBusinessConfigs _businessConfigs;
         private readonly List<WorkListController> _workListControllers;
 
@@ -16,9 +18,11 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen
 
         private bool _initialized;
         
-        public BusinessScreenController(WorkListFactory workListFactory, IBusinessConfigs businessConfigs)
+        public BusinessScreenController(WorkListFactory workListFactory, BusinessUpgradePanelFactory businessUpgradePanelFactory,
+            IBusinessConfigs businessConfigs)
         {
             _workListFactory = workListFactory;
+            _businessUpgradePanelFactory = businessUpgradePanelFactory;
             _businessConfigs = businessConfigs;
             _workListControllers = new List<WorkListController>();
         }
@@ -70,7 +74,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen
 
         private void OpenBusinessUpgradePanel(BusinessType businessType)
         {
-            
+            _businessUpgradePanelFactory.Create(businessType, _view.transform);
         }
     }
 }
