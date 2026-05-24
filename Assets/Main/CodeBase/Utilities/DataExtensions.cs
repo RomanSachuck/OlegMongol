@@ -20,7 +20,7 @@ namespace Main.CodeBase.Utilities
         public static long ToUnixSeconds(this DateTime dateTime) =>
             (long)(dateTime - new DateTime(1970, 1, 1)).TotalSeconds;
 
-        public static string ToTimeString(this int seconds, ILocalization localization)
+        public static string ToTimeString(this int seconds, Localization localization)
         {
             if (seconds / 60 >= 60)
                 return

@@ -16,7 +16,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
         private readonly IBusinessConfigs _businessConfigs;
         private readonly IHousePersistent _housePersistent;
         private readonly IClothesPersistent _clothesPersistent;
-        private readonly ILocalization _localization;
+        private readonly Localization _localization;
         private readonly WorkController _workController;
 
         private  BusinessType _businessType;
@@ -24,7 +24,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
 
         public WorkListController(IBusinessConfigs businessConfigs, 
             IHousePersistent housePersistent, IClothesPersistent clothesPersistent,
-            ILocalization localization, WorkController workController)
+            Localization localization, WorkController workController)
         {
             _businessConfigs = businessConfigs;
             _housePersistent = housePersistent;

@@ -24,37 +24,37 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
 
         private void BindTimeService()
         {
-            Container.BindInterfacesTo<TimeService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<TimeService>().AsSingle();
         }
 
         private void BindPersistentProgress()
         {
-            Container.BindInterfacesTo<PersistentProgress>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PersistentProgress>().AsSingle();
         }
 
         private void BindConfigs()
         {
-            Container.BindInterfacesTo<LocalConfigs>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LocalConfigs>().AsSingle();
         }
 
         private void BindLocalization()
         {
-            Container.BindInterfacesTo<Localization>().AsSingle();
+            Container.BindInterfacesAndSelfTo<Localization>().AsSingle();
         }
 
         private void BindAssetProvider()
         {
-            Container.BindInterfacesTo<AssetsProvider>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AssetsProvider>().AsSingle();
         }
 
         private void BindSceneLoader()
         {
-            Container.BindInterfacesTo<SceneLoader>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SceneLoader>().AsSingle();
         }
 
         private void BindAPIClient()
         {
-            Container.BindInterfacesTo<APIClientYG>().AsSingle();
+            Container.BindInterfacesAndSelfTo<APIClientYG>().AsSingle();
         }
     }
 }

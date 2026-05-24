@@ -16,7 +16,7 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
 
         private void BindHouseBgLoader()
         {
-            Container.Bind<HouseBgLoader>().AsSingle()
+            Container.BindInterfacesAndSelfTo<HouseBgLoader>().AsSingle()
                 .WithArguments(_screenBackgroundsRepository);
         }
     }

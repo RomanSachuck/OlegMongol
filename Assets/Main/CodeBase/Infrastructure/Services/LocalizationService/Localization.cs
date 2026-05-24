@@ -10,7 +10,7 @@ namespace Main.CodeBase.Infrastructure.Services.LocalizationService
         Ru = 1,
     }
     
-    public class Localization : ILocalization
+    public class Localization
     {
         public Language Language { get; set; } = Language.Ru;
         
@@ -100,6 +100,97 @@ namespace Main.CodeBase.Infrastructure.Services.LocalizationService
                     return "cl.";
                 case Language.Ru:
                     return "кл.";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public string GetBusinessName(BusinessType businessType)
+        {
+            switch (businessType)
+            {
+                case BusinessType.Bottle:
+                    return "Сбор бутылок";
+                case BusinessType.Scrap:
+                    return "Сбор металлолома";
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(businessType), businessType, null);
+            }
+        }
+
+        public string GetBusinessWord()
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return "Business";
+                case Language.Ru:
+                    return "Бизнес";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public string GetProductPriceText()
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return "Product price";
+                case Language.Ru:
+                    return "Цена товара";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public string GetSecondsShortWord()
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return "sec.";
+                case Language.Ru:
+                    return "сек.";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public string GetPiecesShortWord()
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return "pi.";
+                case Language.Ru:
+                    return "шт.";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public string GetCycleWord()
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return "Cycle";
+                case Language.Ru:
+                    return "Цикл";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public string GetBuyWord()
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return "Buy";
+                case Language.Ru:
+                    return "Купить";
                 default:
                     throw new ArgumentOutOfRangeException();
             }

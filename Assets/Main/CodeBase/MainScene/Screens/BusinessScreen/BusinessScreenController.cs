@@ -18,8 +18,8 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen
 
         private bool _initialized;
         
-        public BusinessScreenController(WorkListFactory workListFactory, BusinessUpgradePanelFactory businessUpgradePanelFactory,
-            IBusinessConfigs businessConfigs)
+        public BusinessScreenController(WorkListFactory workListFactory, 
+            BusinessUpgradePanelFactory businessUpgradePanelFactory, IBusinessConfigs businessConfigs)
         {
             _workListFactory = workListFactory;
             _businessUpgradePanelFactory = businessUpgradePanelFactory;
@@ -74,7 +74,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen
 
         private void OpenBusinessUpgradePanel(BusinessType businessType)
         {
-            _businessUpgradePanelFactory.Create(businessType, _view.transform);
+            _businessUpgradePanelFactory.Create(businessType).Forget();
         }
     }
 }

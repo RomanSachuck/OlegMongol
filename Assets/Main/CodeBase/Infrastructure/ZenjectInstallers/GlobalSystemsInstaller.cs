@@ -14,12 +14,12 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
 
         private void BindWorkSystem()
         {
-            Container.Bind<WorkController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<WorkController>().AsSingle();
         }
 
         private void BindWalletSystem()
         {
-            Container.Bind<Wallet>().AsSingle();
+            Container.BindInterfacesAndSelfTo<Wallet>().AsSingle();
         }
     }
 }

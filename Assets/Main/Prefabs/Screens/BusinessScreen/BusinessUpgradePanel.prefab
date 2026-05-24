@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 1139287830399713363}
   - component: {fileID: 4889907652660572809}
   m_Layer: 5
-  m_Name: IncreaseProduction_Text
+  m_Name: ProductionUpgrade_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 1058667250521736118}
   - component: {fileID: 3306512558920170273}
   m_Layer: 5
-  m_Name: WorkSpeedNumber_Text
+  m_Name: ProductionValueNumber_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -719,7 +719,7 @@ GameObject:
   - component: {fileID: 79076517725119209}
   - component: {fileID: 1751824742328258438}
   m_Layer: 5
-  m_Name: CurrentIncomeNumber_Text
+  m_Name: PassiveIncomeNumber_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1124,6 +1124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 180139140625077154}
+  - component: {fileID: 7498667935079410206}
   - component: {fileID: 5535128152635775555}
   - component: {fileID: 90086712979003882}
   m_Layer: 5
@@ -1153,6 +1154,18 @@ RectTransform:
   m_AnchoredPosition: {x: -6.0400085, y: -0.97994995}
   m_SizeDelta: {x: 317.5, y: 108.6}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7498667935079410206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755113411544316967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cefbb7b578704eeda57cd92836c799dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &5535128152635775555
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2237,7 +2250,7 @@ GameObject:
   - component: {fileID: 5297985397754372221}
   - component: {fileID: 3923719006448052203}
   m_Layer: 5
-  m_Name: IncreaseCycleSpeed_Text
+  m_Name: PriceUpgrade_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2506,6 +2519,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6725146104281419046}
+  - component: {fileID: 7335778353234278929}
   - component: {fileID: 6524528896654720002}
   - component: {fileID: 8280953384366185148}
   - component: {fileID: 611287937781433861}
@@ -2536,6 +2550,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7335778353234278929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6333657439653676384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c252eecd38493f98873eddf8ec52f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _businessNameText: {fileID: 9028467588085334578}
+  _productPriceText: {fileID: 4230186838775612364}
+  _passiveIncomeValueText: {fileID: 1751824742328258438}
+  _productionValueText: {fileID: 3306512558920170273}
+  _productionUpgradeButtonText: {fileID: 2662348323795549079}
+  _priceUpgradeButtonText: {fileID: 8735390534999341044}
+  _productionUpgradeValueText: {fileID: 4889907652660572809}
+  _priceUpgradeValueText: {fileID: 3923719006448052203}
+  _closeButton: {fileID: 2411282856817877350}
+  _productionUpgradeButton: {fileID: 7498667935079410206}
+  _priceUpgradeButton: {fileID: 8394845030854480092}
+  _workSlider: {fileID: 5177979598218254756}
+  _content: {fileID: 9118203282382362431}
 --- !u!114 &6524528896654720002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2597,6 +2636,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2507954559121353392}
+  - component: {fileID: 2411282856817877350}
   - component: {fileID: 9104463255820997951}
   - component: {fileID: 3101014762295464388}
   - component: {fileID: 2836730504205830628}
@@ -2626,6 +2666,18 @@ RectTransform:
   m_AnchoredPosition: {x: 393.1, y: 660.76}
   m_SizeDelta: {x: 102, y: 102}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2411282856817877350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6587788475442866148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cefbb7b578704eeda57cd92836c799dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &9104463255820997951
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2688,10 +2740,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5262174842157379468}
+  - component: {fileID: 8394845030854480092}
   - component: {fileID: 7416349803941876490}
   - component: {fileID: 1731985961941018956}
   m_Layer: 5
-  m_Name: UpgradeCycle_Button
+  m_Name: UpgradePrice_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2717,6 +2770,18 @@ RectTransform:
   m_AnchoredPosition: {x: 11.9, y: -0.97994995}
   m_SizeDelta: {x: 317.5, y: 108.6}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8394845030854480092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6599807676725219573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cefbb7b578704eeda57cd92836c799dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &7416349803941876490
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2975,9 +3040,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1879417941548357017}
+  - component: {fileID: 5177979598218254756}
   - component: {fileID: 5546199286908873488}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: WorkSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3006,6 +3072,20 @@ RectTransform:
   m_AnchoredPosition: {x: 145.7, y: 441.4}
   m_SizeDelta: {x: 418.9, y: 129.9}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5177979598218254756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8783819304433633277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e21f615f89c4d0586a955bcc6dedf52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 5546199286908873488}
+  _cycleText: {fileID: 4637680317065429326}
 --- !u!114 &5546199286908873488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3052,7 +3132,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 10
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:

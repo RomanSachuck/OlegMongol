@@ -12,10 +12,10 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
         [SerializeField] private Slider _slider;
         [SerializeField] private TextMeshProUGUI _cycleText;
         
-        private ILocalization _localization;
+        private Localization _localization;
 
         [Inject]
-        private void Construct(ILocalization localization)
+        private void Construct(Localization localization)
         {
             _localization = localization;
         }

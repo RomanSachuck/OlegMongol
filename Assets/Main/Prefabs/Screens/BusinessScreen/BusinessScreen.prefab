@@ -336,6 +336,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _businessListsPrefabsRepository: {fileID: 11400000, guid: 3ad25bedbb170ab489772637a2568e2e, type: 2}
   _businessListsParent: {fileID: 1430046219996827223}
+  _businessUpgradePanelPrefab:
+    m_AssetGUID: e699deafadc5c264a8d3dcbbc8d27bd1
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 1
 --- !u!1 &8642194648451742627
 GameObject:
   m_ObjectHideFlags: 0

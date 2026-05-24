@@ -1,6 +1,7 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using Main.CodeBase.Buttons;
+using Main.CodeBase.Canvases;
 using Main.CodeBase.Infrastructure.Services.AssetManagment;
 using Main.CodeBase.MainScene.BottomPanel;
 using Main.CodeBase.MainScene.Screens;
@@ -25,12 +26,12 @@ namespace Main.CodeBase.MainScene.ScreenManagement
         private readonly DiContainer _container;
         private readonly ScreensPrefabsRepository _prefabsRepository;
 
-        public ScreenFactory(Transform mainCanvas, Transform canvasOverlay, 
+        public ScreenFactory(MainCanvasTransform mainCanvas, OverlayCanvasTransform canvasOverlay, 
             ScreensPrefabsRepository prefabsRepository, IAssetProvider assetProvider, 
             DiContainer container)
         {
-            _mainCanvas = mainCanvas;
-            _canvasOverlay = canvasOverlay;
+            _mainCanvas = mainCanvas.transform;
+            _canvasOverlay = canvasOverlay.transform;
             _prefabsRepository = prefabsRepository;
             _assetProvider = assetProvider;
             _container = container;
