@@ -8,5 +8,11 @@ namespace Main.CodeBase.Infrastructure.Services.ConfigsService
         void CacheBusinessConfigs(IEnumerable<BusinessConfigs> configs);
         IEnumerable<BusinessType> GetAllBusinesses();
         BusinessConfigs GetBusinessConfig(BusinessType businessType);
+        ulong GetCurrentProductPrice(BusinessType businessType, int upgradeLevel);
+        int GetCurrentProductionValue(BusinessType businessType, int upgradeLevel);
+        ulong GetCurrentPriceUpgradeCost(BusinessType businessType, int upgradeLevel);
+        ulong GetCurrentProductionUpgradeCost(BusinessType businessType, int upgradeLevel);
+        int GetCurrentProductionUpgradeValue(BusinessType businessType, int upgradeLevel);
+        ulong GetCurrentPriceUpgradeValue(BusinessType businessType, int upgradeLevel);
     }
 }

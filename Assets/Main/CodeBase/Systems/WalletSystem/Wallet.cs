@@ -21,6 +21,11 @@ namespace Main.CodeBase.Systems.WalletSystem
                 _currencies.Add(currency.Item1, currency.Item2);
         }
 
+        public bool IsEnough(Currency currency, ulong value)
+        {
+            return _currencies[currency] >= value;
+        }
+        
         public ulong GetValue(Currency currency) => 
             _currencies[currency];
         

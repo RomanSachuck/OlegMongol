@@ -11,6 +11,8 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.BusinessUpgrade
 {
     public class BusinessUpgradePanelView : MonoBehaviour
     {
+        public event Action ProductionUpgradeButtonClick;
+        public event Action PriceUpgradeButtonClick;
         public event Action Closed;
         
         [SerializeField] private TextMeshProUGUI _businessNameText;
@@ -41,11 +43,15 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.BusinessUpgrade
         
         private void OnEnable()
         {
+            _productionUpgradeButton.Click += OnProductionUpgradeButtonClick;
+            _priceUpgradeButton.Click += OnPriceUpgradeButtonClick;
             _closeButton.Click += OnCloseButtonClick;
         }
 
         private void OnDisable()
         {
+            _productionUpgradeButton.Click -= OnProductionUpgradeButtonClick;
+            _priceUpgradeButton.Click -= OnPriceUpgradeButtonClick;
             _closeButton.Click -= OnCloseButtonClick;
         }
 
@@ -105,6 +111,16 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.BusinessUpgrade
                     _content.DOMoveY(_contentPosY, 0.01f);
                     Closed?.Invoke();
                 });
+        }
+        
+        private void OnPriceUpgradeButtonClick()
+        {
+            PriceUpgradeButtonClick?.Invoke();
+        }
+
+        private void OnProductionUpgradeButtonClick()
+        {
+            ProductionUpgradeButtonClick?.Invoke();
         }
         
         private void OnCloseButtonClick()

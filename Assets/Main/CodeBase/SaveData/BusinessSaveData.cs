@@ -13,8 +13,11 @@ namespace Main.CodeBase.SaveData
         {
             Businesses = new List<BusinessInfoSaveData>();
 
-            foreach (BusinessInfoSaveData business in template.Businesses) 
-                Businesses.Add(new BusinessInfoSaveData(business));
+            if (template.Businesses != null)
+            {
+                foreach (BusinessInfoSaveData business in template.Businesses) 
+                    Businesses.Add(new BusinessInfoSaveData(business));
+            }
         }
     }
 
@@ -34,6 +37,13 @@ namespace Main.CodeBase.SaveData
             ProductionUpgradeLevel = template.ProductionUpgradeLevel;
             PriceUpgradeLevel = template.PriceUpgradeLevel;
             Manager = new ManagerSaveData(template.Manager);
+        }
+
+        public BusinessInfoSaveData(BusinessType businessType)
+        {
+            BusinessType = businessType;
+            ProductionUpgradeLevel = 1;
+            PriceUpgradeLevel = 1;
         }
     }
 

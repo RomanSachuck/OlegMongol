@@ -100,5 +100,58 @@ namespace Main.CodeBase.Infrastructure.Services.PersistentProgressService
         }
         
         #endregion
+
+        #region Business
+        
+        public int GetWorkCycleValue(BusinessType businessType)
+        {
+            return GetBusinessInfoSaveData(businessType).WorkCycleValue;
+        }
+
+        public int GetProductionUpgradeLevel(BusinessType businessType)
+        {
+            return GetBusinessInfoSaveData(businessType)
+                .ProductionUpgradeLevel;
+        }
+
+        public int GetPriceUpgradeLevel(BusinessType businessType)
+        {
+            return GetBusinessInfoSaveData(businessType)
+                .PriceUpgradeLevel;
+        }
+
+        public void SetWorkCycleValue(BusinessType businessType, int value)
+        {
+            GetBusinessInfoSaveData(businessType)
+                .WorkCycleValue = value;
+        }
+
+        public void SetProductionUpgradeLevel(BusinessType businessType, int value)
+        {
+            GetBusinessInfoSaveData(businessType)
+                .ProductionUpgradeLevel = value;
+        }
+
+        public void SetPriceUpgradeLevel(BusinessType businessType, int value)
+        {
+            GetBusinessInfoSaveData(businessType)
+                .PriceUpgradeLevel = value;
+        }
+
+        private BusinessInfoSaveData GetBusinessInfoSaveData(BusinessType businessType)
+        {
+            BusinessInfoSaveData business = _playerProgress.BusinessSaveData.Businesses
+                .FirstOrDefault(b => b.BusinessType == businessType);
+
+            if (business == null)
+            {
+                business = new BusinessInfoSaveData(businessType);
+                _playerProgress.BusinessSaveData.Businesses.Add(business);
+            }
+            
+            return business;
+        }        
+        
+        #endregion
     }
 }

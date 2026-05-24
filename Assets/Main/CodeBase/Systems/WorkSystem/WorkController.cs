@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Main.CodeBase.Infrastructure.Services.ConfigsService;
 using Main.CodeBase.Infrastructure.Services.PersistentProgressService;
-using Main.CodeBase.Infrastructure.Services.TimeService;
 using Main.CodeBase.StaticData.Configs;
 using Main.CodeBase.Systems.WalletSystem;
 
@@ -16,23 +15,16 @@ namespace Main.CodeBase.Systems.WorkSystem
         
         private readonly IBusinessPersistent _businessPersistent;
         private readonly IBusinessConfigs _businessConfigs;
-        private readonly IHousePersistent _housePersistent;
-        private readonly IClothesPersistent _clothesPersistent;
         private readonly Wallet _wallet;
-        private readonly ITimeService _timeService;
         
         private readonly List<WorkData> _works;
 
         public WorkController(IBusinessPersistent businessPersistent, IBusinessConfigs businessConfigs,
-            IHousePersistent housePersistent, IClothesPersistent clothesPersistent,
-            Wallet wallet, ITimeService timeService)
+            Wallet wallet)
         {
             _businessPersistent = businessPersistent;
             _businessConfigs = businessConfigs;
-            _housePersistent = housePersistent;
-            _clothesPersistent = clothesPersistent;
             _wallet = wallet;
-            _timeService = timeService;
             _works = new List<WorkData>();
         }
 
@@ -40,7 +32,8 @@ namespace Main.CodeBase.Systems.WorkSystem
         {
             foreach (BusinessType businessType in _businessConfigs.GetAllBusinesses())
             {
-                _works.Add(new WorkData(businessType, 1, 1, 0, 10)); 
+                _works.Add(new WorkData(businessType, GetCurrentProductionValue(businessType), 
+                    GetCurrentProductPrice(businessType), 0, 10)); 
                 //Здесь должна быть инициализация нормальными значениями
             }
         }
@@ -51,7 +44,80 @@ namespace Main.CodeBase.Systems.WorkSystem
 
             return new(workData.CurrentCycleValue, workData.FullCycleValue);
         }
+
+        public ulong GetCurrentProductPrice(BusinessType businessType)
+        {
+            int upgradeLevel = _businessPersistent.GetPriceUpgradeLevel(businessType);
+            return _businessConfigs.GetCurrentProductPrice(businessType, upgradeLevel);
+        }
+
+        public int GetCurrentProductionValue(BusinessType businessType)
+        {
+            int upgradeLevel = _businessPersistent.GetProductionUpgradeLevel(businessType);
+            return _businessConfigs.GetCurrentProductionValue(businessType, upgradeLevel);
+        }
         
+        public ulong GetCurrentPassiveIncome(BusinessType businessType)
+        {
+            return 0; //Реализовать после добавления менеджера
+        }
+        
+        public ulong GetCurrentProductionUpgradeCost(BusinessType businessType)
+        {
+            int upgradeLevel = _businessPersistent.GetProductionUpgradeLevel(businessType);
+            return _businessConfigs.GetCurrentProductionUpgradeCost(businessType, upgradeLevel);
+        }
+        
+        public ulong GetCurrentPriceUpgradeCost(BusinessType businessType)
+        {
+            int upgradeLevel = _businessPersistent.GetPriceUpgradeLevel(businessType);
+            return _businessConfigs.GetCurrentPriceUpgradeCost(businessType, upgradeLevel);
+        }
+        
+        public int GetCurrentProductionUpgradeValue(BusinessType businessType)
+        {
+            int upgradeLevel = _businessPersistent.GetProductionUpgradeLevel(businessType);
+            return _businessConfigs.GetCurrentProductionUpgradeValue(businessType, upgradeLevel);
+        }
+
+        public ulong GetCurrentPriceUpgradeValue(BusinessType businessType)
+        {
+            int upgradeLevel = _businessPersistent.GetPriceUpgradeLevel(businessType);
+            return _businessConfigs.GetCurrentPriceUpgradeValue(businessType, upgradeLevel);
+        }
+
+        public bool TryUpgradeProduction(BusinessType businessType)
+        {
+            ulong upgradeCost = GetCurrentProductionUpgradeCost(businessType);
+
+            if (_wallet.IsEnough(Currency.Dollar, upgradeCost))
+            {
+                _wallet.Spend(Currency.Dollar, upgradeCost);
+                _businessPersistent.SetProductionUpgradeLevel(businessType, 
+                    _businessPersistent.GetProductionUpgradeLevel(businessType) + 1);
+                UpdateWorkData(businessType);
+                return true; 
+            }
+            
+            return false;
+        }
+        
+        public bool TryUpgradePrice(BusinessType businessType)
+        {
+            ulong upgradeCost = GetCurrentPriceUpgradeCost(businessType);
+            
+            if (_wallet.IsEnough(Currency.Dollar, upgradeCost))
+            {
+                _wallet.Spend(Currency.Dollar, upgradeCost);
+                _businessPersistent.SetPriceUpgradeLevel(businessType,
+                    _businessPersistent.GetPriceUpgradeLevel(businessType) + 1);
+                UpdateWorkData(businessType);
+                return true;
+            }
+            
+            return false;
+        }
+
         public void AddWorkClick(BusinessType businessType)
         {
             WorkData work = _works.First(w => w.BusinessType == businessType);
@@ -60,12 +126,19 @@ namespace Main.CodeBase.Systems.WorkSystem
             if (work.CurrentCycleValue >= work.FullCycleValue)
             {
                 work.CurrentCycleValue = 0;
-                ulong income = (ulong)work.ProductionAmount * work.Price;
+                ulong income = (ulong)work.ProductionValue * work.Price;
                 _wallet.Add(Currency.Dollar, income);
                 IncomeReceived?.Invoke(businessType, income);
             }
             
             WorkCycleUpdated?.Invoke(businessType, work.CurrentCycleValue, work.FullCycleValue);
+        }
+        
+        private void UpdateWorkData(BusinessType businessType)
+        {
+            WorkData workData = _works.First(w => w.BusinessType == businessType);
+            workData.Price = GetCurrentProductPrice(businessType);
+            workData.ProductionValue = GetCurrentProductionValue(businessType);
         }
     }
 }

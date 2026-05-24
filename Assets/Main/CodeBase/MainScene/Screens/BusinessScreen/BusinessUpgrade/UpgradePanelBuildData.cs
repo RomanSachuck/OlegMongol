@@ -13,11 +13,11 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.BusinessUpgrade
         public ulong ProductionUpgradeCost { get; private set; }
         public ulong PriceUpgradeCost { get; private set; }
         public int ProductionUpgradeValue { get; private set; }
-        public int PriceUpgradeValue { get; private set; }
+        public ulong PriceUpgradeValue { get; private set; }
 
         public UpgradePanelBuildData(BusinessType businessType, int currenCycleValue, int fullCycleValue,
             ulong currentProductPrice, ulong passiveIncome, int productionAmount, ulong productionUpgradeCost,
-            ulong priceUpgradeCost, int productionUpgradeValue, int priceUpgradeValue)
+            ulong priceUpgradeCost, int productionUpgradeValue, ulong priceUpgradeValue)
         {
             BusinessType = businessType;
             CurrenCycleValue = currenCycleValue;

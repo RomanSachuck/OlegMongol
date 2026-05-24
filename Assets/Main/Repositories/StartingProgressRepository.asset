@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: StartingProgressRepository
   m_EditorClassIdentifier: 
   <PlayerProgress>k__BackingField:
+    TimeExitGame: 0
     WalletSaveData:
       Currencies:
       - Currency: 0
@@ -23,3 +24,5 @@ MonoBehaviour:
     ClothesSaveData:
       OpenedClothes: 00000000
       SelectedClothes: 0
+    BusinessSaveData:
+      Businesses: []

@@ -14,14 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Configs>k__BackingField:
   - <BusinessType>k__BackingField: 0
-    <BaseProductPrice>k__BackingField: 1
     <CycleSize>k__BackingField: 10
     <BaseProduction>k__BackingField: 1
+    <BaseProductPrice>k__BackingField: 1
+    <BaseProductionUpgradeCost>k__BackingField: 5
+    <BaseProductPriceUpgradeCost>k__BackingField: 25
+    <ProductionRateOfGrowth>k__BackingField: 0
+    <PriceRateOfGrowth>k__BackingField: 0
+    <ProductionUpgradeCostRateOfGrowth>k__BackingField: 0
+    <PriceUpgradeCostRateOfGrowth>k__BackingField: 4
     <RequiredHouse>k__BackingField: 0
     <RequiredClothes>k__BackingField: 0
   - <BusinessType>k__BackingField: 1
-    <BaseProductPrice>k__BackingField: 3
     <CycleSize>k__BackingField: 15
     <BaseProduction>k__BackingField: 1
+    <BaseProductPrice>k__BackingField: 3
+    <BaseProductionUpgradeCost>k__BackingField: 15
+    <BaseProductPriceUpgradeCost>k__BackingField: 45
+    <ProductionRateOfGrowth>k__BackingField: 0
+    <PriceRateOfGrowth>k__BackingField: 0
+    <ProductionUpgradeCostRateOfGrowth>k__BackingField: 0
+    <PriceUpgradeCostRateOfGrowth>k__BackingField: 0
     <RequiredHouse>k__BackingField: 0
     <RequiredClothes>k__BackingField: 0

@@ -1,4 +1,4 @@
 {
-    "PlayerProgressJson": "{\"TimeExitGame\":1779621459231,\"WalletSaveData\":{\"Currencies\":[{\"Currency\":0,\"Value\":77}]},\"HouseSaveData\":{\"OpenedHouses\":[0],\"SelectedHouse\":0},\"ClothesSaveData\":{\"OpenedClothes\":[0],\"SelectedClothes\":0},\"BusinessSaveData\":{\"Businesses\":[]}}",
-    "idSave": 932
+    "PlayerProgressJson": "{\"TimeExitGame\":1779639004075,\"WalletSaveData\":{\"Currencies\":[{\"Currency\":0,\"Value\":6922}]},\"HouseSaveData\":{\"OpenedHouses\":[0],\"SelectedHouse\":0},\"ClothesSaveData\":{\"OpenedClothes\":[0],\"SelectedClothes\":0},\"BusinessSaveData\":{\"Businesses\":[{\"BusinessType\":0,\"WorkCycleValue\":0,\"ProductionUpgradeLevel\":158,\"PriceUpgradeLevel\":39,\"Manager\":{}},{\"BusinessType\":1,\"WorkCycleValue\":0,\"ProductionUpgradeLevel\":1,\"PriceUpgradeLevel\":1,\"Manager\":{}}]}}",
+    "idSave": 1617
 }

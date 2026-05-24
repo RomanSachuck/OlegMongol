@@ -55,9 +55,10 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.BusinessUpgrade
                 _panel = _diContainer.InstantiatePrefab(prefab, _canvasOverlay).GetComponent<BusinessUpgradePanelView>();
                 _panel.Closed += OnPanelClosed;
                 _controller = _diContainer.Instantiate<BusinessUpgradePanelController>();
+                _controller.Initialize(_panel);
             }
             
-            _controller.Build(_panel, businessType);
+            _controller.Build(businessType);
             
             _panel.transform.SetAsLastSibling();
             _panel.Open();
