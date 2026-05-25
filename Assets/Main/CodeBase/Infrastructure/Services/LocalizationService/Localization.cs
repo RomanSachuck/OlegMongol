@@ -195,5 +195,31 @@ namespace Main.CodeBase.Infrastructure.Services.LocalizationService
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+        public string GetExpandWord()
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return "Expand";
+                case Language.Ru:
+                    return "Развернуть";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public string GetCollapseWord()
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return "Collapse";
+                case Language.Ru:
+                    return "Свернуть";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 }

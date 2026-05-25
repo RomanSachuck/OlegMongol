@@ -21,7 +21,7 @@ MonoBehaviour:
     <BaseProductPriceUpgradeCost>k__BackingField: 25
     <ProductionRateOfGrowth>k__BackingField: 0
     <PriceRateOfGrowth>k__BackingField: 0
-    <ProductionUpgradeCostRateOfGrowth>k__BackingField: 0
+    <ProductionUpgradeCostRateOfGrowth>k__BackingField: 2
     <PriceUpgradeCostRateOfGrowth>k__BackingField: 4
     <RequiredHouse>k__BackingField: 0
     <RequiredClothes>k__BackingField: 0

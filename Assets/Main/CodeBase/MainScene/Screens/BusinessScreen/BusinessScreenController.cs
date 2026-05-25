@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Main.CodeBase.Infrastructure.Services.ConfigsService;
-using Main.CodeBase.MainScene.Screens.BusinessScreen.BusinessUpgrade;
+using Main.CodeBase.MainScene.Screens.BusinessScreen.Manager;
 using Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList;
 using Main.CodeBase.StaticData.Configs;
 
@@ -10,7 +10,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen
     public class BusinessScreenController : ScreenControllerAbstract
     {
         private readonly WorkListFactory _workListFactory;
-        private readonly BusinessUpgradePanelFactory _businessUpgradePanelFactory;
+        private readonly ManagerPanelFactory _managerPanelFactory;
         private readonly IBusinessConfigs _businessConfigs;
         private readonly List<WorkListController> _workListControllers;
 
@@ -19,10 +19,10 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen
         private bool _initialized;
         
         public BusinessScreenController(WorkListFactory workListFactory, 
-            BusinessUpgradePanelFactory businessUpgradePanelFactory, IBusinessConfigs businessConfigs)
+            ManagerPanelFactory managerPanelFactory, IBusinessConfigs businessConfigs)
         {
             _workListFactory = workListFactory;
-            _businessUpgradePanelFactory = businessUpgradePanelFactory;
+            _managerPanelFactory = managerPanelFactory;
             _businessConfigs = businessConfigs;
             _workListControllers = new List<WorkListController>();
         }
@@ -42,7 +42,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen
             {
                 foreach (WorkListController controller in _workListControllers)
                 {
-                    controller.OpenBusinessUpgradePanelEvent += OpenBusinessUpgradePanel;
+                    controller.OpenManagerPanelEvent += OpenManagerPanel;
                     controller.Start();
                 }
             }
@@ -54,7 +54,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen
             
             foreach (WorkListController controller in _workListControllers)
             {
-                controller.OpenBusinessUpgradePanelEvent -= OpenBusinessUpgradePanel;
+                controller.OpenManagerPanelEvent -= OpenManagerPanel;
                 controller.Stop();
             }
         }
@@ -64,7 +64,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen
             foreach (BusinessType businessType in _businessConfigs.GetAllBusinesses())
             {
                 WorkListController controller = await _workListFactory.CreateBusinessList(businessType);
-                controller.OpenBusinessUpgradePanelEvent += OpenBusinessUpgradePanel;
+                controller.OpenManagerPanelEvent += OpenManagerPanel;
                 controller.Start();
                 _workListControllers.Add(controller);
             }
@@ -72,9 +72,9 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen
             _initialized = true;
         }
 
-        private void OpenBusinessUpgradePanel(BusinessType businessType)
+        private void OpenManagerPanel(BusinessType businessType)
         {
-            _businessUpgradePanelFactory.Create(businessType).Forget();
+            _managerPanelFactory.Create(businessType).Forget();
         }
     }
 }

@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ca7f8328a84fc04692b219f03017611
+    m_Address: Assets/Main/Prefabs/Screens/BusinessScreen/ManagerPanel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1fb956f9361f903428be56c98f8cc117
     m_Address: Assets/Main/Prefabs/ScreenOverlay/SettingsButton.prefab
     m_ReadOnly: 0

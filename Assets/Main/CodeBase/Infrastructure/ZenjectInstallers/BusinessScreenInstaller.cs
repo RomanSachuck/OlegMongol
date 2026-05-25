@@ -1,4 +1,4 @@
-﻿using Main.CodeBase.MainScene.Screens.BusinessScreen.BusinessUpgrade;
+﻿using Main.CodeBase.MainScene.Screens.BusinessScreen.Manager;
 using Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList;
 using Main.CodeBase.StaticData.Repositories;
 using UnityEngine;
@@ -11,18 +11,18 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
     {
         [SerializeField] private BusinessListsPrefabsRepository _businessListsPrefabsRepository;
         [SerializeField] private Transform _businessListsParent;
-        [SerializeField] private AssetReferenceGameObject _businessUpgradePanelPrefab;
+        [SerializeField] private AssetReferenceGameObject _managerPanelPrefab;
         
         public override void InstallBindings()
         {
             BindBusinessListFactory();
-            BindBusinessUpgradePanelFactory();
+            BindManagerPanelFactory();
         }
 
-        private void BindBusinessUpgradePanelFactory()
+        private void BindManagerPanelFactory()
         {
-            Container.BindInterfacesAndSelfTo<BusinessUpgradePanelFactory>().AsSingle()
-                .WithArguments(_businessUpgradePanelPrefab);
+            Container.BindInterfacesAndSelfTo<ManagerPanelFactory>().AsSingle()
+                .WithArguments(_managerPanelPrefab);
         }
 
         private void BindBusinessListFactory()

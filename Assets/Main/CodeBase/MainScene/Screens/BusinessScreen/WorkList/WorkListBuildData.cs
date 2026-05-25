@@ -1,8 +1,8 @@
 ﻿using Main.CodeBase.StaticData.Configs;
 
-namespace Main.CodeBase.MainScene.Screens.BusinessScreen.BusinessUpgrade
+namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
 {
-    public class UpgradePanelBuildData
+    public class WorkListBuildData
     {
         public BusinessType BusinessType { get; private set; }
         public int CurrenCycleValue { get; private set; }
@@ -15,7 +15,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.BusinessUpgrade
         public int ProductionUpgradeValue { get; private set; }
         public ulong PriceUpgradeValue { get; private set; }
 
-        public UpgradePanelBuildData(BusinessType businessType, int currenCycleValue, int fullCycleValue,
+        public WorkListBuildData(BusinessType businessType, int currenCycleValue, int fullCycleValue,
             ulong currentProductPrice, ulong passiveIncome, int productionAmount, ulong productionUpgradeCost,
             ulong priceUpgradeCost, int productionUpgradeValue, ulong priceUpgradeValue)
         {

@@ -1,4 +1,5 @@
-﻿using Main.CodeBase.Infrastructure.Services.LocalizationService;
+﻿using DG.Tweening;
+using Main.CodeBase.Infrastructure.Services.LocalizationService;
 using Main.CodeBase.SimpleAnimations;
 using TMPro;
 using UnityEngine;
@@ -24,9 +25,34 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
         {
             _slider.maxValue = fullValue;
             
-            _slider.DoValue(currentValue, 0.2f);
+            DOTween.Kill(transform);
             
-            _cycleText.text = $"{currentValue}/{fullValue}{_localization.GetClickShortWord()}";
+            if(currentValue != 0)
+            {
+                _slider.DoValue(currentValue, 0.2f);
+                _cycleText.text = $"{currentValue}/{fullValue}{_localization.GetClickShortWord()}";
+            }
+            else
+            {
+                DOTween.Sequence()
+                    .SetId(transform)
+                    .AppendCallback(() =>
+                    {
+                        _slider.DoValue(10, 0.2f);
+                        _cycleText.text = $"{fullValue}/{fullValue}{_localization.GetClickShortWord()}";
+                    })
+                    .SetId(transform)
+                    .AppendInterval(0.1f)
+                    .SetId(transform)
+                    .AppendCallback(() =>
+                    {
+                        _slider.DoValue(currentValue, 0.2f);
+                        _cycleText.text = $"{currentValue}/{fullValue}{_localization.GetClickShortWord()}";
+                    })
+                    .SetId(transform);
+            }
+            
+            
         }
     }
 }

@@ -6,9 +6,9 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
 
-namespace Main.CodeBase.MainScene.Screens.BusinessScreen.BusinessUpgrade
+namespace Main.CodeBase.MainScene.Screens.BusinessScreen.Manager
 {
-    public class BusinessUpgradePanelFactory : ITickable
+    public class ManagerPanelFactory : ITickable
     {
         private const float TimeToDestroy = 10;
         
@@ -17,13 +17,13 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.BusinessUpgrade
         private readonly AssetReferenceGameObject _panelPrefab;
         private readonly Transform _canvasOverlay;
 
-        private BusinessUpgradePanelView _panel;
-        private BusinessUpgradePanelController _controller;
+        private ManagerPanelView _panel;
+        private ManagerPanelController _controller;
 
         private bool _readyForDestroy;
         private float _timeToDestroyCounter;
 
-        public BusinessUpgradePanelFactory(IAssetProvider assetProvider, DiContainer diContainer,
+        public ManagerPanelFactory(IAssetProvider assetProvider, DiContainer diContainer,
             AssetReferenceGameObject panelPrefab, OverlayCanvasTransform canvasOverlay)
         {
             _assetProvider = assetProvider;
@@ -52,9 +52,9 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.BusinessUpgrade
             if (_panel == null)
             {
                 GameObject prefab = await _assetProvider.Load<GameObject>(_panelPrefab);
-                _panel = _diContainer.InstantiatePrefab(prefab, _canvasOverlay).GetComponent<BusinessUpgradePanelView>();
+                _panel = _diContainer.InstantiatePrefab(prefab, _canvasOverlay).GetComponent<ManagerPanelView>();
                 _panel.Closed += OnPanelClosed;
-                _controller = _diContainer.Instantiate<BusinessUpgradePanelController>();
+                _controller = _diContainer.Instantiate<ManagerPanelController>();
                 _controller.Initialize(_panel);
             }
             

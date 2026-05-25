@@ -11,7 +11,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
 {
     public class WorkListController
     {
-        public event Action<BusinessType> OpenBusinessUpgradePanelEvent;
+        public event Action<BusinessType> OpenManagerPanelEvent;
         
         private readonly IBusinessConfigs _businessConfigs;
         private readonly IHousePersistent _housePersistent;
@@ -21,6 +21,8 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
 
         private  BusinessType _businessType;
         private WorkListView _view;
+
+        private bool _expanded;
 
         public WorkListController(IBusinessConfigs businessConfigs, 
             IHousePersistent housePersistent, IClothesPersistent clothesPersistent,
@@ -44,16 +46,22 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
             InitView();
             
             _view.ClickWorkButton += OnClickWorkButton;
-            _view.ClickUpgradeButton += OnClickUpgradeButton;
+            _view.ClickExpandButton += OnClickExpandButton;
+            _view.ProductionUpgradeButtonClick += OnProductionUpgradeButtonClick;
+            _view.PriceUpgradeButtonClick += OnPriceUpgradeButtonClick;
+            _view.ManagerButtonClick += OnManagerButtonClick;
 
             _workController.WorkCycleUpdated += OnWorkCycleUpdated;
             _workController.IncomeReceived += OnIncomeReceived;
         }
-        
+
         public void Stop()
         {
             _view.ClickWorkButton -= OnClickWorkButton;
-            _view.ClickUpgradeButton -= OnClickUpgradeButton;
+            _view.ClickExpandButton -= OnClickExpandButton;
+            _view.ProductionUpgradeButtonClick -= OnProductionUpgradeButtonClick;
+            _view.PriceUpgradeButtonClick -= OnPriceUpgradeButtonClick;
+            _view.ManagerButtonClick -= OnManagerButtonClick;
             
             _workController.WorkCycleUpdated -= OnWorkCycleUpdated;
             _workController.IncomeReceived -= OnIncomeReceived;
@@ -75,14 +83,36 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
             }
         }
         
-        private void OnClickUpgradeButton()
+        private void OnClickExpandButton()
         {
-            OpenBusinessUpgradePanelEvent?.Invoke(_businessType);
+            _expanded = !_expanded;
+            _view.SetExpand(_expanded);
         }
 
         private void OnClickWorkButton()
         {
             _workController.AddWorkClick(_businessType);
+        }
+        
+        private void OnProductionUpgradeButtonClick()
+        {
+            if (_workController.TryUpgradeProduction(_businessType))
+            {
+                _view.Rebuild(CreateBuildData());
+            }
+        }
+
+        private void OnPriceUpgradeButtonClick()
+        {
+            if (_workController.TryUpgradePrice(_businessType))
+            {
+                _view.Rebuild(CreateBuildData());
+            }
+        }
+        
+        private void OnManagerButtonClick()
+        {
+            OpenManagerPanelEvent?.Invoke(_businessType);
         }
 
         private void InitView()
@@ -92,11 +122,21 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
             IEnumerable<ClothesType> openedClothes = _clothesPersistent.GetOpenedClothes();
             bool businessUnlocked = IsUnlocked(config, openedClothes, openedHouses);
             string lockedTitle = businessUnlocked ? "" : CreateLockedTitle(config, openedClothes, openedHouses);
-            (int, int) cycleValues = _workController.GetCycleValues(_businessType);
             
-            _view.Initialize(businessUnlocked, lockedTitle, cycleValues.Item1, cycleValues.Item2);
+            _view.Initialize(businessUnlocked, lockedTitle, CreateBuildData());
         }
 
+        private WorkListBuildData CreateBuildData()
+        {
+            (int, int) cycleValues = _workController.GetCycleValues(_businessType);
+            
+            return new WorkListBuildData(_businessType, cycleValues.Item1, cycleValues.Item2, 
+                _workController.GetCurrentProductPrice(_businessType), _workController.GetCurrentPassiveIncome(_businessType),
+                _workController.GetCurrentProductionValue(_businessType), _workController.GetCurrentProductionUpgradeCost(_businessType), 
+                _workController.GetCurrentPriceUpgradeCost(_businessType), _workController.GetCurrentProductionUpgradeValue(_businessType), 
+                _workController.GetCurrentPriceUpgradeValue(_businessType));
+        }
+        
         private string CreateLockedTitle(BusinessConfigs config, IEnumerable<ClothesType> openedClothes, 
             IEnumerable<HouseType> openedHouses)
         {
