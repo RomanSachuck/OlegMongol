@@ -8,7 +8,7 @@ namespace Main.CodeBase.StaticData.Configs
     {
         [field:SerializeField] public ManagerType ManagerType { get; private set; }
         [field:SerializeField] public int BaseClickValue { get; private set; }
-        [field:SerializeField] public int UpgradeCost { get; private set; }
+        [field:SerializeField] public ulong BaseUpgradeCost { get; private set; }
         [field:SerializeField] public RateOfGrowth ClickRateOfGrowth { get; private set; }
         [field:SerializeField] public RateOfGrowth UpgradeCostRateOfGrowth { get; private set; }
     }

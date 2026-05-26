@@ -127,6 +127,12 @@ namespace Main.CodeBase.Infrastructure.Services.ConfigsService
             return 1f / CalculateCurrentValueForGrowth(config.ClickRateOfGrowth, (ulong)config.BaseClickValue, level);
         }
 
+        public ulong GetUpgradeCost(ManagerType managerType, int level)
+        {
+            ManagerConfigs config = _managerConfigs.First(c => c.ManagerType == managerType);
+            return CalculateCurrentValueForGrowth(config.UpgradeCostRateOfGrowth, config.BaseUpgradeCost, level);
+        }
+
         #endregion
         
         private ulong CalculateCurrentValueForGrowth(RateOfGrowth rateOfGrowth, ulong baseValue, int upgradeLevel)

@@ -41,19 +41,14 @@ namespace Main.CodeBase.Systems.WorkSystem
             {
                 int currentCycleValue = _businessPersistent.GetWorkCycleValue(businessType);
                 int fullCycleValue = _businessConfigs.GetCycleSize(businessType);
-                int managerLevel = _businessPersistent.GetManagerLevel(businessType);
+                int managerLevel = GetManagerLevel(businessType);
 
                 _works.Add(new WorkData(businessType, GetCurrentProductionValue(businessType),
                     GetCurrentProductPrice(businessType), currentCycleValue, fullCycleValue));
 
                 if (managerLevel > 0)
                 {
-                    ManagerType managerType = GetManagerType(businessType);
-                    Manager manager = new Manager(managerType, businessType);
-                    manager.SetTimeToClick(_managerConfigs.GetTimeToClick(managerType, managerLevel));
-                    manager.ManagerClicked += AddWorkClick;
-
-                    _managers.Add(manager);
+                    CreateManager(businessType, managerLevel);
                 }
             }
         }
@@ -117,6 +112,21 @@ namespace Main.CodeBase.Systems.WorkSystem
             return _businessConfigs.GetManagerType(businessType);
         }
 
+        public int GetManagerLevel(BusinessType businessType)
+        {
+            return _businessPersistent.GetManagerLevel(businessType);
+        }
+
+        public ulong GetManagerUpgradeCost(BusinessType businessType)
+        {
+            return _managerConfigs.GetUpgradeCost(GetManagerType(businessType), GetManagerLevel(businessType));
+        }
+        
+        public int GetManagerClickAmount(BusinessType businessType)
+        {
+            return (int)(1 / _managerConfigs.GetTimeToClick(GetManagerType(businessType), GetManagerLevel(businessType)));
+        }
+        
         public bool TryUpgradeProduction(BusinessType businessType)
         {
             ulong upgradeCost = GetCurrentProductionUpgradeCost(businessType);
@@ -149,6 +159,21 @@ namespace Main.CodeBase.Systems.WorkSystem
             return false;
         }
 
+        public bool TryUpgradeManager(BusinessType businessType)
+        {
+            ulong upgradeCost = GetManagerUpgradeCost(businessType);
+
+            if (_wallet.IsEnough(Currency.Dollar, upgradeCost))
+            {
+                _wallet.Spend(Currency.Dollar, upgradeCost);
+                _businessPersistent.SetManagerLevel(businessType, _businessPersistent.GetManagerLevel(businessType) + 1);
+                UpdateManager(businessType);
+                return true;
+            }
+            
+            return false;
+        }
+
         public void AddWorkClick(BusinessType businessType)
         {
             WorkData work = _works.First(w => w.BusinessType == businessType);
@@ -171,6 +196,32 @@ namespace Main.CodeBase.Systems.WorkSystem
             WorkData workData = _works.First(w => w.BusinessType == businessType);
             workData.Price = GetCurrentProductPrice(businessType);
             workData.ProductionValue = GetCurrentProductionValue(businessType);
+        }
+        
+        private void UpdateManager(BusinessType businessType)
+        {
+            Manager manager = _managers.FirstOrDefault(m => m.BusinessType == businessType);
+            int managerLevel = GetManagerLevel(businessType);
+
+            if (manager == null)
+            {
+                CreateManager(businessType, managerLevel);
+            }
+            else
+            {
+                ManagerType managerType = GetManagerType(businessType);
+                manager.SetTimeToClick(_managerConfigs.GetTimeToClick(managerType, managerLevel));
+            }
+        }
+
+        private void CreateManager(BusinessType businessType, int managerLevel)
+        {
+            ManagerType managerType = GetManagerType(businessType);
+            Manager manager = new Manager(managerType, businessType);
+            manager.SetTimeToClick(_managerConfigs.GetTimeToClick(managerType, managerLevel));
+            manager.ManagerClicked += AddWorkClick;
+
+            _managers.Add(manager);
         }
     }
 }

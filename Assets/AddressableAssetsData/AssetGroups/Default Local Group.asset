@@ -40,6 +40,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 490c2ecc2bb2f7e41afbbfdefd318836
+    m_Address: Assets/AssetPacks/ManagerPortraits/MadPasha.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d80765b6e9657f438d75446ed34d2ef
     m_Address: Assets/Main/Prefabs/ScreenOverlay/BottomPanel.prefab
     m_ReadOnly: 0
@@ -67,6 +72,26 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d7e65e52950ddd418d657c9602098e4
     m_Address: Assets/Main/Prefabs/Screens/RelaxScreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5148b117eb4dc9408b30301792ab5a9
+    m_Address: Assets/AssetPacks/ManagerPortraits/FedorBat.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9825c4c8e5bf6c4bb4a216ca7e6fb89
+    m_Address: Assets/AssetPacks/ManagerPortraits/RuslanGitelman.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfe4272000c0a4444b69588dd4ed84d3
+    m_Address: Assets/AssetPacks/ManagerPortraits/GennadiyGorin.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e306d220b54db564da2beb3c89b3ce2d
+    m_Address: Assets/AssetPacks/ManagerPortraits/Empty.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

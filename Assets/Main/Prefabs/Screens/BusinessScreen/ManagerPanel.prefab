@@ -505,6 +505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 538814881000808069}
+  - component: {fileID: 1028184979464528303}
   - component: {fileID: 5134477749236327577}
   - component: {fileID: 8918790185701460704}
   m_Layer: 5
@@ -534,6 +535,18 @@ RectTransform:
   m_AnchoredPosition: {x: -173, y: -483}
   m_SizeDelta: {x: 413.4, y: 142.2}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1028184979464528303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4597822628991762638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cefbb7b578704eeda57cd92836c799dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &5134477749236327577
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -626,6 +639,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _content: {fileID: 5750560270950952523}
   _closeButton: {fileID: 1850081080875300660}
+  _upgradeButton: {fileID: 1028184979464528303}
+  _managerPortrait: {fileID: 5332438069775135345}
+  _nameText: {fileID: 2634582523758283444}
+  _infoText: {fileID: 4978779040484799130}
+  _skillsText: {fileID: 3691012467512753184}
+  _statusText: {fileID: 362963631796054848}
+  _buttonUpgradeText: {fileID: 4767587745279773717}
 --- !u!114 &6524528896654720002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -847,12 +867,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.9
-  m_fontSizeBase: 53.9
+  m_fontSize: 54
+  m_fontSizeBase: 54
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 54
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -1230,7 +1250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 490c2ecc2bb2f7e41afbbfdefd318836, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e306d220b54db564da2beb3c89b3ce2d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d63f6ce2c7c407cae035cc20c0a144e, type: 3}
+  m_Name: IconsRepository
+  m_EditorClassIdentifier: 
+  _managerPortraits:
+  - <ManagerType>k__BackingField: 0
+    <SpriteRef>k__BackingField:
+      m_AssetGUID: e306d220b54db564da2beb3c89b3ce2d
+      m_SubObjectName: Empty
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
+  - <ManagerType>k__BackingField: 1
+    <SpriteRef>k__BackingField:
+      m_AssetGUID: 490c2ecc2bb2f7e41afbbfdefd318836
+      m_SubObjectName: MadPasha
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
+  - <ManagerType>k__BackingField: 2
+    <SpriteRef>k__BackingField:
+      m_AssetGUID: b5148b117eb4dc9408b30301792ab5a9
+      m_SubObjectName: FedorBat
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
+  - <ManagerType>k__BackingField: 3
+    <SpriteRef>k__BackingField:
+      m_AssetGUID: b9825c4c8e5bf6c4bb4a216ca7e6fb89
+      m_SubObjectName: RuslanGitelman
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
+  - <ManagerType>k__BackingField: 4
+    <SpriteRef>k__BackingField:
+      m_AssetGUID: bfe4272000c0a4444b69588dd4ed84d3
+      m_SubObjectName: GennadiyGorin
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1

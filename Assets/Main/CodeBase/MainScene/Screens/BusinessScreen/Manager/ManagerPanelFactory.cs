@@ -2,6 +2,7 @@
 using Main.CodeBase.Canvases;
 using Main.CodeBase.Infrastructure.Services.AssetManagment;
 using Main.CodeBase.StaticData.Configs;
+using Main.CodeBase.StaticData.Repositories;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Zenject;
@@ -15,6 +16,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.Manager
         private readonly IAssetProvider _assetProvider;
         private readonly DiContainer _diContainer;
         private readonly AssetReferenceGameObject _panelPrefab;
+        private readonly IconsRepository _iconsRepository;
         private readonly Transform _canvasOverlay;
 
         private ManagerPanelView _panel;
@@ -24,11 +26,13 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.Manager
         private float _timeToDestroyCounter;
 
         public ManagerPanelFactory(IAssetProvider assetProvider, DiContainer diContainer,
-            AssetReferenceGameObject panelPrefab, OverlayCanvasTransform canvasOverlay)
+            AssetReferenceGameObject panelPrefab, OverlayCanvasTransform canvasOverlay,
+            IconsRepository iconsRepository)
         {
             _assetProvider = assetProvider;
             _diContainer = diContainer;
             _panelPrefab = panelPrefab;
+            _iconsRepository = iconsRepository;
             _canvasOverlay = canvasOverlay.transform;
         }
         
@@ -58,10 +62,14 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.Manager
                 _controller.Initialize(_panel);
             }
             
-            _controller.Build(businessType);
+            Sprite managerPortrait = await _assetProvider.Load<Sprite>(_iconsRepository
+                .GetManagerPortrait(_controller.GetManagerType(businessType)));
+            
+            _controller.Build(businessType, managerPortrait);
             
             _panel.transform.SetAsLastSibling();
             _panel.Open();
+            
             _readyForDestroy = false;
         }
 

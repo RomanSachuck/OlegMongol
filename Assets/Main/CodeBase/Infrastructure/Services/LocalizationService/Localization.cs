@@ -221,5 +221,151 @@ namespace Main.CodeBase.Infrastructure.Services.LocalizationService
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+        public string GetNameWord()
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return "Name";
+                case Language.Ru:
+                    return "Имя";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public string GetInfoWord()
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return "Information";
+                case Language.Ru:
+                    return "Информация";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+        
+        public string GetProfitWord()
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return "Profit";
+                case Language.Ru:
+                    return "Польза";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+        
+        public string GetManagerName(ManagerType manager)
+        {
+            switch (manager)
+            {
+                case ManagerType.Empty:
+                    return "Отсутствует";
+                case ManagerType.MadPashka:
+                    return "Безумный Пашка";
+                case ManagerType.FedorBat:
+                    return "Федя Летучая Мышь";
+                case ManagerType.RuslanGitelman:
+                    return "Руслан Гительман";
+                case ManagerType.GennadiyGorin:
+                    return "Геннадий Горин";
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(manager), manager, null);
+            }
+        }
+
+        public string GetManagerInfo(ManagerType manager)
+        {
+            switch (manager)
+            {
+                case ManagerType.Empty:
+                    return "Отсутствует";
+                case ManagerType.MadPashka:
+                    return "Его девиз - \"Утром план, вечером стопка\"";
+                case ManagerType.FedorBat:
+                    return "Если долго смотреть на его отчётность, начинает двоиться в глазах";
+                case ManagerType.RuslanGitelman:
+                    return "Его девиз — \"Стакан всегда наполовину полон, потому что я не успел его допить\"";
+                case ManagerType.GennadiyGorin:
+                    return "Искренне не понимает, что вы делаете в корпоративном холодильнике";
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(manager), manager, null);
+            }
+        }
+
+        public string GetManagerProfitText(int clickAmount)
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return $"Makes {clickAmount} auto-click per second";
+                case Language.Ru:
+                    return $"Совершает {clickAmount} авто-клик в секунду";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public string GetCurrentStatusText()
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return "Current status";
+                case Language.Ru:
+                    return "Текущий статус";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public string GetManagerStatusText(bool hired)
+        {
+            switch (Language)
+            {
+                case Language.En:
+                {
+                    return hired ? "Hired" : "Not hired";
+                }
+                case Language.Ru:
+                {
+                    return hired ? "Нанят" : "Не нанят";
+                }
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public string GetUpgradeWord()
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return "Upgrade";
+                case Language.Ru:
+                    return "Улучшить";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public string GetHireWord()
+        {
+            switch (Language)
+            {
+                case Language.En:
+                    return "Hire";
+                case Language.Ru:
+                    return "Нанять";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 }

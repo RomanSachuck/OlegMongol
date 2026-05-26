@@ -6,13 +6,16 @@ namespace Main.CodeBase.Infrastructure.ZenjectInstallers
 {
     public class GlobalRepositoriesInstaller : MonoInstaller
     {
+        [SerializeField] private IconsRepository _iconsRepository;
         
         public override void InstallBindings()
         {
+            BindIconsRepository();
         }
 
-        private void BindScreensPrefabRepository()
+        private void BindIconsRepository()
         {
+            Container.BindInterfacesAndSelfTo<IconsRepository>().FromInstance(_iconsRepository).AsSingle();
         }
     }
 }
