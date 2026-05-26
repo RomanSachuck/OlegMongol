@@ -2,6 +2,7 @@
 using DG.Tweening;
 using Main.CodeBase.Buttons;
 using Main.CodeBase.Infrastructure.Services.LocalizationService;
+using Main.CodeBase.Utilities;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -48,7 +49,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
         
         public void Initialize(bool isUnlocked, string lockedTitle, WorkListBuildData buildData)
         {
-            _workSlider.SetValue(buildData.CurrenCycleValue, buildData.FullCycleValue);
+            _workSlider.SetValue(buildData.CurrenCycleValue, buildData.FullCycleValue, false);
             _lockedPanel.SetActive(isUnlocked == false, lockedTitle);
             
             SetTexts(buildData);
@@ -68,14 +69,18 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
             _productionValueText.text = $"{buildData.ProductionAmount} {_localization.GetPiecesShortWord()} " +
                                         $"/ {_localization.GetCycleWord().ToLower()}";
 
-            _productionUpgradeButtonText.text = $"{_localization.GetBuyWord()} {buildData.ProductionUpgradeCost}$";
+            _productionUpgradeButtonText.text = $"{_localization.GetBuyWord()} " +
+                                                $"{buildData.ProductionUpgradeCost.ToFormatNumberString()}$";
 
-            _priceUpgradeButtonText.text = $"{_localization.GetBuyWord()} {buildData.PriceUpgradeCost}$";
+            _priceUpgradeButtonText.text = $"{_localization.GetBuyWord()} " +
+                                           $"{buildData.PriceUpgradeCost.ToFormatNumberString()}$";
 
-            _productionUpgradeValueText.text = $"+{buildData.ProductionUpgradeValue} {_localization.GetPiecesShortWord()} " +
+            _productionUpgradeValueText.text = $"+{buildData.ProductionUpgradeValue.ToFormatNumberString()} " +
+                                               $"{_localization.GetPiecesShortWord()} " +
                                                $"/ {_localization.GetCycleWord().ToLower()}";
 
-            _priceUpgradeValueText.text = $"+{buildData.PriceUpgradeValue}$ {_localization.GetProductPriceText().ToLower()}";
+            _priceUpgradeValueText.text = $"+{buildData.PriceUpgradeValue.ToFormatNumberString()}$ " +
+                                          $"{_localization.GetProductPriceText().ToLower()}";
         }
 
         private void OnEnable()

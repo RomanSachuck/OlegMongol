@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Configs>k__BackingField:
   - <BusinessType>k__BackingField: 0
+    <Manager>k__BackingField: 1
     <CycleSize>k__BackingField: 10
     <BaseProduction>k__BackingField: 1
     <BaseProductPrice>k__BackingField: 1
@@ -26,6 +27,7 @@ MonoBehaviour:
     <RequiredHouse>k__BackingField: 0
     <RequiredClothes>k__BackingField: 0
   - <BusinessType>k__BackingField: 1
+    <Manager>k__BackingField: 2
     <CycleSize>k__BackingField: 15
     <BaseProduction>k__BackingField: 1
     <BaseProductPrice>k__BackingField: 3

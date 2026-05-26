@@ -46,7 +46,26 @@ namespace Main.CodeBase.Utilities
             
             decimal rounded = Math.Round(result, 2);
 
-            return rounded % 1 == 0 ? $"{(int)rounded}{_numberNames[n]}" : $"{rounded:0.00}.{_numberNames[n]}";
+            return rounded % 1 == 0 ? $"{(int)rounded}{_numberNames[n]}" : $"{rounded:0.00}{_numberNames[n]}";
+        }
+        
+        public static string ToFormatNumberString(this int number)
+        {
+            if (number < 1000)
+                return number.ToString();
+
+            int n = 0;
+            decimal result = number;
+
+            while (n + 1 < _numberNames.Length && result >= 1000m)
+            {
+                result /= 1000m;
+                n++;
+            }
+            
+            decimal rounded = Math.Round(result, 2);
+
+            return rounded % 1 == 0 ? $"{(int)rounded}{_numberNames[n]}" : $"{rounded:0.00}{_numberNames[n]}";
         }
 
         public static Color ToColor(this string targetColor)

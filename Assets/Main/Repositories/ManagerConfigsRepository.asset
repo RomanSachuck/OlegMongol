@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72378e48230645b8a7ef53d023237083, type: 3}
+  m_Name: ManagerConfigsRepository
+  m_EditorClassIdentifier: 
+  <Configs>k__BackingField:
+  - <ManagerType>k__BackingField: 1
+    <BaseClickValue>k__BackingField: 1
+    <UpgradeCost>k__BackingField: 500
+    <ClickRateOfGrowth>k__BackingField: 0
+    <UpgradeCostRateOfGrowth>k__BackingField: 4
+  - <ManagerType>k__BackingField: 2
+    <BaseClickValue>k__BackingField: 1
+    <UpgradeCost>k__BackingField: 5000
+    <ClickRateOfGrowth>k__BackingField: 0
+    <UpgradeCostRateOfGrowth>k__BackingField: 4
+  - <ManagerType>k__BackingField: 3
+    <BaseClickValue>k__BackingField: 1
+    <UpgradeCost>k__BackingField: 50000
+    <ClickRateOfGrowth>k__BackingField: 0
+    <UpgradeCostRateOfGrowth>k__BackingField: 4
+  - <ManagerType>k__BackingField: 4
+    <BaseClickValue>k__BackingField: 1
+    <UpgradeCost>k__BackingField: 5000000
+    <ClickRateOfGrowth>k__BackingField: 0
+    <UpgradeCostRateOfGrowth>k__BackingField: 4

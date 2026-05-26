@@ -120,6 +120,12 @@ namespace Main.CodeBase.Infrastructure.Services.PersistentProgressService
                 .PriceUpgradeLevel;
         }
 
+        public int GetManagerLevel(BusinessType businessType)
+        {
+            return GetBusinessInfoSaveData(businessType)
+                .ManagerLevel;
+        }
+
         public void SetWorkCycleValue(BusinessType businessType, int value)
         {
             GetBusinessInfoSaveData(businessType)
@@ -136,6 +142,12 @@ namespace Main.CodeBase.Infrastructure.Services.PersistentProgressService
         {
             GetBusinessInfoSaveData(businessType)
                 .PriceUpgradeLevel = value;
+        }
+
+        public void SetManagerLevel(BusinessType businessType, int value)
+        {
+            GetBusinessInfoSaveData(businessType)
+                .ManagerLevel = value;
         }
 
         private BusinessInfoSaveData GetBusinessInfoSaveData(BusinessType businessType)

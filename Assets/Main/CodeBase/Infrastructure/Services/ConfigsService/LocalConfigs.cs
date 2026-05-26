@@ -47,6 +47,16 @@ namespace Main.CodeBase.Infrastructure.Services.ConfigsService
             return _businessConfigs.First(c => c.BusinessType == businessType);
         }
 
+        public ManagerType GetManagerType(BusinessType businessType)
+        {
+            return GetBusinessConfig(businessType).Manager;
+        }
+
+        public int GetCycleSize(BusinessType businessType)
+        {
+            return GetBusinessConfig(businessType).CycleSize;
+        }
+
         public ulong GetCurrentProductPrice(BusinessType businessType, int upgradeLevel)
         {
             BusinessConfigs config = GetBusinessConfig(businessType);
@@ -94,7 +104,31 @@ namespace Main.CodeBase.Infrastructure.Services.ConfigsService
             
             return nextPrice - currentPrice;
         }
+        
+        #endregion
 
+        #region Managers
+
+        private IEnumerable<ManagerConfigs> _managerConfigs;
+        
+        public void CacheManagersConfigs(IEnumerable<ManagerConfigs> configs)
+        {
+            _managerConfigs = configs;
+        }
+
+        public IEnumerable<ManagerType> GetAllManagers()
+        {
+            return _managerConfigs.Select(c => c.ManagerType).ToArray();
+        }
+
+        public float GetTimeToClick(ManagerType managerType, int level)
+        {
+            ManagerConfigs config = _managerConfigs.First(c => c.ManagerType == managerType);
+            return 1f / CalculateCurrentValueForGrowth(config.ClickRateOfGrowth, (ulong)config.BaseClickValue, level);
+        }
+
+        #endregion
+        
         private ulong CalculateCurrentValueForGrowth(RateOfGrowth rateOfGrowth, ulong baseValue, int upgradeLevel)
         {
             switch (rateOfGrowth)
@@ -113,7 +147,5 @@ namespace Main.CodeBase.Infrastructure.Services.ConfigsService
                     throw new ArgumentOutOfRangeException(nameof(rateOfGrowth), rateOfGrowth, null);
             }
         }
-        
-        #endregion
     }
 }

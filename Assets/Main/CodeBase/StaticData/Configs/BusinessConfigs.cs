@@ -7,6 +7,7 @@ namespace Main.CodeBase.StaticData.Configs
     public class BusinessConfigs
     {
         [field:SerializeField] public BusinessType BusinessType { get; private set; }
+        [field:SerializeField] public ManagerType Manager { get; private set; }
         [field:SerializeField] public int CycleSize { get; private set; }
         [field:SerializeField] public ulong BaseProduction { get; private set; }
         [field:SerializeField] public ulong BaseProductPrice { get; private set; }

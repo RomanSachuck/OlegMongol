@@ -21,11 +21,18 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
             _localization = localization;
         }
         
-        public void SetValue(int currentValue, int fullValue)
+        public void SetValue(int currentValue, int fullValue, bool withAnimation = true)
         {
             _slider.maxValue = fullValue;
             
             DOTween.Kill(transform);
+
+            if (withAnimation == false)
+            {
+                _slider.value = currentValue;
+                _cycleText.text = $"{currentValue}/{fullValue}{_localization.GetClickShortWord()}";
+                return;
+            }
             
             if(currentValue != 0)
             {

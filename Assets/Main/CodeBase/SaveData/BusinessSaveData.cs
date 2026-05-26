@@ -28,7 +28,7 @@ namespace Main.CodeBase.SaveData
         public int WorkCycleValue;
         public int ProductionUpgradeLevel;
         public int PriceUpgradeLevel;
-        public ManagerSaveData Manager;
+        public int ManagerLevel;
 
         public BusinessInfoSaveData(BusinessInfoSaveData template)
         {
@@ -36,7 +36,7 @@ namespace Main.CodeBase.SaveData
             WorkCycleValue = template.WorkCycleValue;
             ProductionUpgradeLevel = template.ProductionUpgradeLevel;
             PriceUpgradeLevel = template.PriceUpgradeLevel;
-            Manager = new ManagerSaveData(template.Manager);
+            ManagerLevel = template.ManagerLevel;
         }
 
         public BusinessInfoSaveData(BusinessType businessType)
@@ -44,15 +44,6 @@ namespace Main.CodeBase.SaveData
             BusinessType = businessType;
             ProductionUpgradeLevel = 1;
             PriceUpgradeLevel = 1;
-        }
-    }
-
-    [Serializable]
-    public class ManagerSaveData
-    {
-        public ManagerSaveData(ManagerSaveData template)
-        {
-            
         }
     }
 }
