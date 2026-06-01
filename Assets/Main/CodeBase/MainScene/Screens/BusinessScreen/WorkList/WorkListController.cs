@@ -53,6 +53,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
 
             _workController.WorkCycleUpdated += OnWorkCycleUpdated;
             _workController.IncomeReceived += OnIncomeReceived;
+            _workController.ManagerUpgraded += OnManagerUpgraded;
         }
 
         public void Stop()
@@ -65,6 +66,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
             
             _workController.WorkCycleUpdated -= OnWorkCycleUpdated;
             _workController.IncomeReceived -= OnIncomeReceived;
+            _workController.ManagerUpgraded -= OnManagerUpgraded;
         }
         
         private void OnWorkCycleUpdated(BusinessType businessType, int currentValue, int fullValue)
@@ -115,6 +117,14 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
             OpenManagerPanelEvent?.Invoke(_businessType);
         }
 
+        private void OnManagerUpgraded(BusinessType businessType)
+        {
+            if (businessType == _businessType)
+            {
+                _view.Rebuild(CreateBuildData());
+            }
+        }
+        
         private void InitView()
         {
             BusinessConfigs config = _businessConfigs.GetBusinessConfig(_businessType);

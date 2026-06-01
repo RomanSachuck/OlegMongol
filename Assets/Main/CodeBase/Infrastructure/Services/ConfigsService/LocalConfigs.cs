@@ -4,6 +4,7 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using Main.CodeBase.SaveData;
 using Main.CodeBase.StaticData.Configs;
+using UnityEngine;
 
 namespace Main.CodeBase.Infrastructure.Services.ConfigsService
 {
@@ -137,18 +138,23 @@ namespace Main.CodeBase.Infrastructure.Services.ConfigsService
         
         private ulong CalculateCurrentValueForGrowth(RateOfGrowth rateOfGrowth, ulong baseValue, int upgradeLevel)
         {
+            upgradeLevel -= 1;
+            
+            if(upgradeLevel < 0)
+                upgradeLevel = 0;
+            
             switch (rateOfGrowth)
             {
                 case RateOfGrowth.VerySlow:
                     return baseValue + baseValue * (ulong)upgradeLevel;
                 case RateOfGrowth.Slow:
-                    return baseValue + baseValue * (ulong)upgradeLevel * (2 + (ulong)(upgradeLevel / 10));
+                    return baseValue + baseValue * (ulong)Mathf.Pow(upgradeLevel, 1.5f);
                 case RateOfGrowth.Middle:
-                    return baseValue + baseValue * (ulong)upgradeLevel * (3 + (ulong)(upgradeLevel / 8));
+                    return baseValue + baseValue * (ulong)Mathf.Pow(upgradeLevel, 2f);
                 case RateOfGrowth.Fast:
-                    return baseValue + baseValue * (ulong)upgradeLevel * (4 + (ulong)(upgradeLevel / 6));
+                    return baseValue + baseValue * (ulong)Mathf.Pow(upgradeLevel, 2.5f);
                 case RateOfGrowth.SuperFast:
-                    return baseValue + baseValue * (ulong)upgradeLevel * (5 + (ulong)(upgradeLevel / 3));
+                    return baseValue + baseValue * (ulong)Mathf.Pow(upgradeLevel, 3f);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(rateOfGrowth), rateOfGrowth, null);
             }

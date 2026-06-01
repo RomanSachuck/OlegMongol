@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using DG.Tweening;
 using Main.CodeBase.Buttons;
 using Main.CodeBase.Infrastructure.Services.LocalizationService;
@@ -62,11 +63,15 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
 
         private void SetTexts(WorkListBuildData buildData)
         {
-            _productPriceText.text = $"${buildData.CurrentProductPrice} / {_localization.GetPiecesShortWord()}";
+            string passiveIncomeValue = buildData.PassiveIncome.Item1 < 10 
+                ? buildData.PassiveIncome.Item2.ToString("F1") 
+                : buildData.PassiveIncome.Item1.ToFormatNumberString();
             
-            _passiveIncomeValueText.text = $"${buildData.PassiveIncome} / {_localization.GetSecondsShortWord()}";
+            _productPriceText.text = $"${buildData.CurrentProductPrice.ToFormatNumberString()} / {_localization.GetPiecesShortWord()}";
             
-            _productionValueText.text = $"{buildData.ProductionAmount} {_localization.GetPiecesShortWord()} " +
+            _passiveIncomeValueText.text = $"${passiveIncomeValue} / {_localization.GetSecondsShortWord()}";
+            
+            _productionValueText.text = $"{buildData.ProductionAmount.ToFormatNumberString()} {_localization.GetPiecesShortWord()} " +
                                         $"/ {_localization.GetCycleWord().ToLower()}";
 
             _productionUpgradeButtonText.text = $"{_localization.GetBuyWord()} " +

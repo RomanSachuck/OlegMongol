@@ -30,12 +30,12 @@ MonoBehaviour:
     <Manager>k__BackingField: 2
     <CycleSize>k__BackingField: 15
     <BaseProduction>k__BackingField: 1
-    <BaseProductPrice>k__BackingField: 3
-    <BaseProductionUpgradeCost>k__BackingField: 15
-    <BaseProductPriceUpgradeCost>k__BackingField: 45
+    <BaseProductPrice>k__BackingField: 50
+    <BaseProductionUpgradeCost>k__BackingField: 750
+    <BaseProductPriceUpgradeCost>k__BackingField: 2500
     <ProductionRateOfGrowth>k__BackingField: 0
     <PriceRateOfGrowth>k__BackingField: 0
-    <ProductionUpgradeCostRateOfGrowth>k__BackingField: 0
-    <PriceUpgradeCostRateOfGrowth>k__BackingField: 0
+    <ProductionUpgradeCostRateOfGrowth>k__BackingField: 2
+    <PriceUpgradeCostRateOfGrowth>k__BackingField: 4
     <RequiredHouse>k__BackingField: 0
-    <RequiredClothes>k__BackingField: 0
+    <RequiredClothes>k__BackingField: 1

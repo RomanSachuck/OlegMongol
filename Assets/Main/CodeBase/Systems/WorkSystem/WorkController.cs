@@ -5,6 +5,7 @@ using Main.CodeBase.Infrastructure.Services.ConfigsService;
 using Main.CodeBase.Infrastructure.Services.PersistentProgressService;
 using Main.CodeBase.StaticData.Configs;
 using Main.CodeBase.Systems.WalletSystem;
+using UnityEngine;
 using Zenject;
 
 namespace Main.CodeBase.Systems.WorkSystem
@@ -14,6 +15,7 @@ namespace Main.CodeBase.Systems.WorkSystem
     {
         public event Action<BusinessType, int, int> WorkCycleUpdated;
         public event Action<BusinessType, ulong> IncomeReceived;
+        public event Action<BusinessType> ManagerUpgraded;
 
         private readonly IBusinessPersistent _businessPersistent;
         private readonly IBusinessConfigs _businessConfigs;
@@ -78,9 +80,21 @@ namespace Main.CodeBase.Systems.WorkSystem
             return _businessConfigs.GetCurrentProductionValue(businessType, upgradeLevel);
         }
 
-        public ulong GetCurrentPassiveIncome(BusinessType businessType)
+        public (ulong, float) GetCurrentPassiveIncome(BusinessType businessType)
         {
-            return 0; //Реализовать после добавления менеджера
+            (ulong, float) result = (0, 0);
+            Manager manager = _managers.FirstOrDefault(m => m.BusinessType == businessType);
+            WorkData business = _works.First(x => x.BusinessType == businessType);
+
+            if (manager != null)
+            {
+                int clicksPerSecond = Mathf.RoundToInt(1 / manager.TimeToClick);
+                float numberCyclesPerSecond = (float)clicksPerSecond / business.FullCycleValue;
+                float resultValue = numberCyclesPerSecond * business.Price * business.ProductionValue;
+                result = ((ulong)resultValue, resultValue);
+            }
+            
+            return result;
         }
 
         public ulong GetCurrentProductionUpgradeCost(BusinessType businessType)
@@ -124,7 +138,8 @@ namespace Main.CodeBase.Systems.WorkSystem
         
         public int GetManagerClickAmount(BusinessType businessType)
         {
-            return (int)(1 / _managerConfigs.GetTimeToClick(GetManagerType(businessType), GetManagerLevel(businessType)));
+            return Mathf.RoundToInt(1 / _managerConfigs.GetTimeToClick(GetManagerType(businessType), 
+                GetManagerLevel(businessType)));
         }
         
         public bool TryUpgradeProduction(BusinessType businessType)
@@ -168,6 +183,7 @@ namespace Main.CodeBase.Systems.WorkSystem
                 _wallet.Spend(Currency.Dollar, upgradeCost);
                 _businessPersistent.SetManagerLevel(businessType, _businessPersistent.GetManagerLevel(businessType) + 1);
                 UpdateManager(businessType);
+                ManagerUpgraded?.Invoke(businessType);
                 return true;
             }
             

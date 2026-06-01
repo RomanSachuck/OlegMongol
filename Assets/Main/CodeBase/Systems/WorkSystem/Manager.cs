@@ -8,11 +8,11 @@ namespace Main.CodeBase.Systems.WorkSystem
     {
         public event Action<BusinessType> ManagerClicked;
         
-        private float _timeToClick;
         private float _timeCounter;
 
         public ManagerType ManagerType { get; private set; }
         public BusinessType BusinessType { get; private set; }
+        public float TimeToClick { get; private set; }
 
         public Manager(ManagerType managerType, BusinessType businessType)
         {
@@ -22,14 +22,14 @@ namespace Main.CodeBase.Systems.WorkSystem
         
         public void SetTimeToClick(float timeToClick)
         {
-            _timeToClick = timeToClick;
+            TimeToClick = timeToClick;
         }
         
         public void UpdateTimer()
         {
             _timeCounter += Time.deltaTime;
 
-            if (_timeCounter >= _timeToClick)
+            if (_timeCounter >= TimeToClick)
             {
                 _timeCounter = 0;
                 ManagerClicked?.Invoke(BusinessType);

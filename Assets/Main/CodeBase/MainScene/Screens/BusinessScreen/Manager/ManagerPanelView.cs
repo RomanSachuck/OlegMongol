@@ -2,6 +2,7 @@
 using DG.Tweening;
 using Main.CodeBase.Buttons;
 using Main.CodeBase.Infrastructure.Services.LocalizationService;
+using Main.CodeBase.Utilities;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -89,7 +90,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.Manager
             string buttonText = buildData.Hired 
                 ? _localization.GetUpgradeWord().ToUpper() 
                 : _localization.GetHireWord().ToUpper();
-            _buttonUpgradeText.text = $"{buttonText} {buildData.Cost}$";
+            _buttonUpgradeText.text = $"{buttonText} {buildData.Cost.ToFormatNumberString()}$";
         }
         
         private void Close()

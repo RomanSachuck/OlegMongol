@@ -8,7 +8,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
         public int CurrenCycleValue { get; private set; }
         public int FullCycleValue { get; private set; }
         public ulong CurrentProductPrice { get; private set; }
-        public ulong PassiveIncome { get; private set; }
+        public (ulong, float) PassiveIncome { get; private set; }
         public int ProductionAmount { get; private set; }
         public ulong ProductionUpgradeCost { get; private set; }
         public ulong PriceUpgradeCost { get; private set; }
@@ -16,7 +16,7 @@ namespace Main.CodeBase.MainScene.Screens.BusinessScreen.WorkList
         public ulong PriceUpgradeValue { get; private set; }
 
         public WorkListBuildData(BusinessType businessType, int currenCycleValue, int fullCycleValue,
-            ulong currentProductPrice, ulong passiveIncome, int productionAmount, ulong productionUpgradeCost,
+            ulong currentProductPrice, (ulong, float) passiveIncome, int productionAmount, ulong productionUpgradeCost,
             ulong priceUpgradeCost, int productionUpgradeValue, ulong priceUpgradeValue)
         {
             BusinessType = businessType;
