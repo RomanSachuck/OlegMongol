@@ -1,4 +1,4 @@
 {
-    "PlayerProgressJson": "{\"TimeExitGame\":1780310816337,\"WalletSaveData\":{\"Currencies\":[{\"Currency\":0,\"Value\":0}]},\"HouseSaveData\":{\"OpenedHouses\":[0],\"SelectedHouse\":0},\"ClothesSaveData\":{\"OpenedClothes\":[0],\"SelectedClothes\":0},\"BusinessSaveData\":{\"Businesses\":[{\"BusinessType\":0,\"WorkCycleValue\":0,\"ProductionUpgradeLevel\":1,\"PriceUpgradeLevel\":1,\"ManagerLevel\":0},{\"BusinessType\":1,\"WorkCycleValue\":0,\"ProductionUpgradeLevel\":1,\"PriceUpgradeLevel\":1,\"ManagerLevel\":0}]}}",
-    "idSave": 321
+    "PlayerProgressJson": "{\"TimeExitGame\":1782898392266,\"WalletSaveData\":{\"Currencies\":[{\"Currency\":0,\"Value\":46148}]},\"HouseSaveData\":{\"OpenedHouses\":[0],\"SelectedHouse\":0},\"ClothesSaveData\":{\"OpenedClothes\":[0],\"SelectedClothes\":0},\"BusinessSaveData\":{\"Businesses\":[{\"BusinessType\":0,\"WorkCycleValue\":0,\"ProductionUpgradeLevel\":7,\"PriceUpgradeLevel\":4,\"ManagerLevel\":3},{\"BusinessType\":1,\"WorkCycleValue\":0,\"ProductionUpgradeLevel\":1,\"PriceUpgradeLevel\":1,\"ManagerLevel\":0}]}}",
+    "idSave": 647
 }

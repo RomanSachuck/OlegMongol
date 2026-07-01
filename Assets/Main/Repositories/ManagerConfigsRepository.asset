@@ -15,7 +15,7 @@ MonoBehaviour:
   <Configs>k__BackingField:
   - <ManagerType>k__BackingField: 1
     <BaseClickValue>k__BackingField: 1
-    <BaseUpgradeCost>k__BackingField: 50
+    <BaseUpgradeCost>k__BackingField: 500
     <ClickRateOfGrowth>k__BackingField: 0
     <UpgradeCostRateOfGrowth>k__BackingField: 4
   - <ManagerType>k__BackingField: 2
